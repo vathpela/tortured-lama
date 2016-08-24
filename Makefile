@@ -19,11 +19,12 @@ pdf : | build
 
 publish : | build
 	@cp .gitignore _book/.gitignore
-	git checkout gh-pages
-	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) add .
-	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) commit -am "Update build"
+	cd _book ; \
+	git checkout gh-pages ; \
+	GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) add . ; \
+	GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) commit -am "Update build" ;\
+	git checkout --force $(HEAD) ;\
 	cd $(TOPDIR)
-	git checkout --force $(HEAD)
 	$(MAKE) push
 
 push :
