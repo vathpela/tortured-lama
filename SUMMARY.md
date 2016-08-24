@@ -1,6 +1,5 @@
 # Summary
-
-1. [Introduction](intro/README.md)
+1. [Introduction](README.md)
  1 UEFI Driver Model Extensions
  2 Overview
  3 Goals
@@ -553,19 +552,19 @@
  6.2 Smart Card Edge Protocol
 36. [Protocols - Timestamp Protocol](protocols/timestamp/README.md)
  1 EFI Timestamp Protocol
-37. [Appendix A - GUID and Time Formats](appendices/guid-time/README.md)
-38. [Appendix B - Console](appendices/console/README.md)
+37. [Appendix A - GUID and Time Formats](appendices/a-guid-time/README.md)
+38. [Appendix B - Console](appendices/b-console/README.md)
  1 EFI_SIMPLE_TEXT_INPUT_PROTOCOL and EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL
  2 EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL
-39. [Appendix C - Device Path Examples](appendices/devicepath/README.md)
+39. [Appendix C - Device Path Examples](appendices/c-devicepath/README.md)
  1 Example Computer System
  2 Legacy Floppy
  3 IDE Disk
  4 Secondary Root PCI Bus with PCI to PCI Bridge
  5 ACPI Terms
  6 EFI Device Path as a Name Space
-40. [Appendix D - Status Codes](appendices/status/README.md)
-41. [Appendix E - Universal Network Driver Interfaces](appendices/undi/README.md)
+40. [Appendix D - Status Codes](appendices/d-status/README.md)
+41. [Appendix E - Universal Network Driver Interfaces](appendices/e-undi/README.md)
  1 Introduction
  1.1 Definitions
  1.2 Referenced Specifications
@@ -599,19 +598,19 @@
  4.18 Transmit
  4.19 Receive
  4.20 PXE 2.1 specification wire protocol clarifications
-42. [Appendix F - Using the Simple Pointer Protocol](appendices/simple-pointer/README.md)
-43. [Appendix G - Using the EFI Extended SCSI Pass Thru Protocol](appendices/scsi-passthrough/README.md)
-44. [Appendix H - Compression Source Code](appendices/compression/README.md)
-45. [Appendix I - Decompression Source Code](appendices/decompression/README.md)
-46. [Appendix J - EFI Byte Code Virtual Machine Opcode List](appendices/ebc/README.md)
-47. [Appendix K - Alphabetic Function Lists](appendices/alpha-functions/README.md)
-48. [Appendix L - EFI 1.10 Protocol Changes and Deprecation List](appendices/efi-1.10-compat/README.md)
+42. [Appendix F - Using the Simple Pointer Protocol](appendices/f-simple-pointer/README.md)
+43. [Appendix G - Using the EFI Extended SCSI Pass Thru Protocol](appendices/g-scsi-passthrough/README.md)
+44. [Appendix H - Compression Source Code](appendices/h-compression/README.md)
+45. [Appendix I - Decompression Source Code](appendices/i-decompression/README.md)
+46. [Appendix J - EFI Byte Code Virtual Machine Opcode List](j-appendices/ebc/README.md)
+47. [Appendix K - Alphabetic Function Lists](appendices/k-alpha-functions/README.md)
+48. [Appendix L - EFI 1.10 Protocol Changes and Deprecation List](appendices/l-efi-1.10-compat/README.md)
  1 Protocol and GUID Name Changes from EFI 1.10
  2 Deprecated Protocols
-49. [Appendix M - Formats - Language Codes and Language Code Arrays](appendices/formats/README.md)
+49. [Appendix M - Formats - Language Codes and Language Code Arrays](appendices/m-formats/README.md)
  1 Specifying individual language codes
  1.1 Specifying language code arrays:
-50. [Appendix N - Common Platform Error Record](appendices/error-record/README.md)
+50. [Appendix N - Common Platform Error Record](appendices/n-error-record/README.md)
  1 Introduction
  2 Format
  2.1 Record Header
@@ -626,14 +625,14 @@
  2.10 Firmware Error Record Reference
  2.11 DMAr Error Sections
  2.12 Error Status
-51. [Appendix O - UEFI ACPI Data Table](appendices/acpi/README.md)
-52. [Appendix P - Hardware Error Record Persistence Usage](appendices/hardware-error-record/README.md)
+51. [Appendix O - UEFI ACPI Data Table](appendices/o-acpi/README.md)
+52. [Appendix P - Hardware Error Record Persistence Usage](appendices/p-hardware-error-record/README.md)
  1 Determining space
  2 Saving Hardware error records
  3 Clearing error record variables
-53. [Appendix Q - References]
+53. [Appendix Q - References](appendices/q-references/README.md)
  1 Related Information
  2 Prerequisite Specifications
  2.1 ACPI Specification
  2.2 Additional Considerations for Itanium-Based Platforms
-54. [Appendix R - Glossary]
+54. [Appendix R - Glossary](appendices/r-glossary/README.md)
