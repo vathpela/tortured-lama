@@ -1,0 +1,11 @@
+{
+	"language": "en",
+	"gitbook": ">=3.2.0",
+	"title": "UEFI Specification",
+	"author": "UEFI Forum",
+	"plugins": ["autocover"],
+	"pluginsConfig": {
+		"autocover": {
+		}
+	}
+}
