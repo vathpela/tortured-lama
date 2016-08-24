@@ -1,10 +1,13 @@
 TOPDIR = $(shell pwd)
 GITDIR = $(TOPDIR)/.git/
 BOOKDIR = $(TOPDIR)/_book/
-HEAD = $(shell cut -d\  -f2 $(GITDIR)/.git/HEAD)
+HEAD = $(shell cut -d\  -f2 $(GITDIR)/HEAD)
 
 all : | clean
 all : build pdf
+
+echo :
+	@echo HEAD=$(HEAD)
 
 build : | clean install
 	gitbook build
