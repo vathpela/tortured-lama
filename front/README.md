@@ -1,7 +1,11 @@
----
-Title: Acknowledgements
----
-# Acknowledgements
+# Title Page {#title}
+
+Unified Extensible Firmware Interface
+Specification
+Version 2.6
+January, 2016
+
+# Acknowledgements {#ack}
 
 The material contained herein is not a license, either expressly or impliedly,
 to any intellectual property owned or controlled by any of the authors or
