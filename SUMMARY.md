@@ -1,5 +1,5 @@
 # Summary
-1. [Introduction](README.md)
+1. [Introduction](intro/README.md)
  1 UEFI Driver Model Extensions
  2 Overview
  3 Goals
