@@ -1,5 +1,4 @@
-Introduction {#intro}
------
+# Introduction {#intro}
 
 This *Unified Extensible Firmware Interface* (hereafter known as UEFI)
 *Specification* describes an interface between the operating system (OS) and the
