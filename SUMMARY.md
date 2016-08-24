@@ -1,6 +1,6 @@
 # Summary
 
-1 [Introduction](intro/README.md)
+1. [Introduction](intro/README.md)
  1 UEFI Driver Model Extensions
  2 Overview
  3 Goals
@@ -21,7 +21,7 @@
  8.6 Typographic Conventions
  8.7 Number formats
  8.8 Binary prefixes
-2 [Overview](overview/README.md)
+2. [Overview](overview/README.md)
  1 Boot Manager
  1.1 UEFI Images
  1.2 UEFI Applications
@@ -52,7 +52,7 @@
  6.2 Platform-Specific Elements
  6.3 Driver-Specific Elements
  6.4 Extensions to this Specification published elsewhere
-3 [Boot Manager](bootmanager/README.md)
+3. [Boot Manager](bootmanager/README.md)
  1 Firmware Boot Manager
  1.1 Boot Manager Programming
  1.2 Load Option Processing
@@ -70,7 +70,7 @@
  5 Boot Mechanisms
  5.1 Boot via the Simple File Protocol
  5.2 Boot via the Load File Protocol
-4 [EFI System Table](systab/README.md)
+4. [EFI System Table](systab/README.md)
  4.1 UEFI Image Entry Point
  4.2 EFI Table Header
  4.3 EFI System Table
@@ -82,7 +82,7 @@
  4.7.2 UEFI Driver Model Example
  4.7.3 UEFI Driver Model Example (Unloadable)
  4.7.4 EFI Driver Model Example (Multiple Instances)
-5 [GUID Partition Table (GPT) Disk Layout](gpt/README.md)
+5. [GUID Partition Table (GPT) Disk Layout](gpt/README.md)
  1 GPT and MBR disk layout comparison
  2 LBA 0 Format
  2.1 Legacy Master Boot Record (MBR)
@@ -92,13 +92,13 @@
  3.1 GPT overview
  3.2 GPT Header
  3.3 GPT Partition Entry Array
-6 [Services - Boot Services](services/boot/README.md)
+6. [Services - Boot Services](services/boot/README.md)
  1 Event, Timer, and Task Priority Services
  2 Memory Allocation Services
  3 Protocol Handler Services
  4 Image Services
  5 Miscellaneous Boot Services
-7 [Services - Runtime Services](rservices/runtime/README.md)
+7. [Services - Runtime Services](rservices/runtime/README.md)
  1 Runtime Services Rules and Restrictions
  1.1 Exception for Machine Check, INIT, and NMI
  2 Variable Services
@@ -114,10 +114,10 @@
  5.4 Exchanging information between the OS and Firmware
  5.5 Delivery of Capsules via file on Mass Storage device
  5.6 UEFI variable reporting on the Success or any Errors encountered in processing of capsules after restart
-8 [Protocols - EFI Loaded Image](protocols/loadedimage/README.md)
+8. [Protocols - EFI Loaded Image](protocols/loadedimage/README.md)
  1 EFI Loaded Image Protocol
  2 EFI Loaded Image Device Path Protocol
-9 [Protocols - Device Path Protocol](protocols/devicepath/README.md)
+9. [Protocols - Device Path Protocol](protocols/devicepath/README.md)
  1 Device Path Overview
  2 EFI Device Path Protocol
  3 Device Path Nodes
@@ -140,7 +140,7 @@
  6.1 Design Discussion
  6.2 Device Path to Text Protocol
  6.3 Device Path from Text Protocol
-10 [Protocols - UEFI Driver Model](protocols/drivermodel/README.md)
+10. [Protocols - UEFI Driver Model](protocols/drivermodel/README.md)
  1 EFI Driver Binding Protocol
  2 EFI Platform Driver Override Protocol
  3 EFI Bus Specific Driver Override Protocol
@@ -161,7 +161,7 @@
  12.2 Network Boot
  12.3 SAN MAC Address
  12.4 IPV6 Support from UNDI
-11 [Protocols - Console Support](protocols/conio/README.md)
+11. [Protocols - Console Support](protocols/conio/README.md)
  1 Console I/O Protocol
  1.2 ConsoleIn Definition
  2 Simple Text Input Ex Protocol
@@ -175,7 +175,7 @@
  9 Graphics Output Protocol
  9.1 Blt Buffer
  10 Rules for PCI/AGP Devices
-12 [Protocols - Media Access](protocols/media/README.md)
+12. [Protocols - Media Access](protocols/media/README.md)
  1 Load File Protocol
  2 Load File 2 Protocol
  3 File System Format
@@ -200,7 +200,7 @@
  15 NVM Express Pass Through Protocol
  16 SD MMC Pass Thru Protocol
  17 RAM Disk Protocol
-13 [Protocols - PCI Bus Support](protocols/pcibus/README.md)
+13. [Protocols - PCI Bus Support](protocols/pcibus/README.md)
  1 PCI Root Bridge I/O Support
  1.1 PCI Root Bridge I/O Overview
  2 PCI Root Bridge I/O Protocol
@@ -214,7 +214,7 @@
  4.2 PCI Option ROMs
  4.3 Nonvolatile Storage
  4.4 PCI Hot-Plug Events
-14 [Protocols - SCSI Driver Models and Bus Support](protocols/scsi/README.md)
+14. [Protocols - SCSI Driver Models and Bus Support](protocols/scsi/README.md)
  1 SCSI Driver Model Overview
  2 SCSI Bus Drivers
  2.1 Driver Binding Protocol for SCSI Bus Drivers
@@ -229,11 +229,11 @@
  5.4 InfiniBand Device Path Example
  6 SCSI Pass Thru Device Paths
  7 Extended SCSI Pass Thru Protocol
-15 [Protocols - iSCSI Boot](protocols/iscsiboot/README.md)
+15. [Protocols - iSCSI Boot](protocols/iscsiboot/README.md)
  1 Overview
  1.1 iSCSI UEFI Driver Layering
  2 EFI iSCSI Initiator Name Protocol
-16 [Protocols - USB Support](protocols/usb/README.md)
+16. [Protocols - USB Support](protocols/usb/README.md)
  1 USB2 Host Controller Protocol
  1.1 USB Host Controller Protocol Overview
  2 USB Driver Model
@@ -242,7 +242,7 @@
  2.3 USB Device Driver
  2.4 USB I/O Protocol
  3 USB Function Protocol
-17 [Protocols - Debugger Support](protocols/debugger/README.md)
+17. [Protocols - Debugger Support](protocols/debugger/README.md)
  1 Overview
  2 EFI Debug Support Protocol
  2.1 EFI Debug Support Protocol Overview
@@ -253,7 +253,7 @@
  4.1 Overview
  4.2 EFI System Table Location
  4.3 EFI Image Info
-18 [Protocols - Compression Algorithm Specification](protocols/compression/README.md)
+18. [Protocols - Compression Algorithm Specification](protocols/compression/README.md)
  1 Algorithm Overview
  2 Data Format
  2.1 Bit Order
@@ -265,12 +265,12 @@
  3.3 Huffman Code Generation
  4 Decompressor Design
  5 Decompress Protocol
-19 [Protocols - ACPI Protocols](protocols/ACPI/README.md)
-20 [Protocols - String Services](protocols/string/README.md)
+19. [Protocols - ACPI Protocols](protocols/ACPI/README.md)
+20. [Protocols - String Services](protocols/string/README.md)
  20.1 Unicode Collation Protocol
  20.2 Regular Expression Protocol
  20.2.1 EFI Regular Expression Syntax Type Definitions
-21 [EFI Byte Code Virtual Machine](protocols/EBC/README.md)
+21. [EFI Byte Code Virtual Machine](protocols/EBC/README.md)
  1 Overview
  1.1 Processor Architecture Independence
  1.2 OS Independent
@@ -334,7 +334,7 @@
  13.8 Undefined Exception
  14.1 EFI Drivers for PCI Add-in Cards
  14.2 Non-PCI Bus Support
-22 [Protocols - Firmware Update and Reporting](protocols/fwupdate/README.md)
+22. [Protocols - Firmware Update and Reporting](protocols/fwupdate/README.md)
  1 Firmware Management Protocol
  2 Delivering Capsules Containing Updates to Firmware Management Protocol
  2.1 EFI_FIRMWARE_MANAGEMENT_CAPSULE_ID_GUID
@@ -344,7 +344,7 @@
  3.1 Adding and Removing Devices from the ESRT
  3.2 ESRT and Firmware Management Protocol
  3.3 Mapping Firmware Management Protocol Descriptors to ESRT Entries
-23 [Network Protocols - SNP, PXE, BIS and HTTP Boot](protocols/net/README.md)
+23. [Network Protocols - SNP, PXE, BIS and HTTP Boot](protocols/net/README.md)
  23.1 Simple Network Protocol
  23.2 Network Interface Identifier Protocol
  23.3 PXE Base Code Protocol
@@ -360,9 +360,9 @@
  23.7.4 Concept of Message Exchange in a typical HTTP Boot scenario (IPv4 in
  Corporate Environment)
  23.7.5 Concept of Message Exchange in HTTP Boot scenario (IPv6)
-24 [Network Protocols - Managed Network](protocols/mnp/README.md)
+24. [Network Protocols - Managed Network](protocols/mnp/README.md)
  1 EFI Managed Network Protocol
-25 [Network Protocols - VLAN, EAP, Wi-Fi and Supplicant](protocols/wifi/README.md)
+25. [Network Protocols - VLAN, EAP, Wi-Fi and Supplicant](protocols/wifi/README.md)
  1 VLAN Configuration Protocol
  2 EAP Protocol
  2.1 EAPManagement Protocol
@@ -373,11 +373,11 @@
  5 EFI Supplicant Protocol
  5.1 Supplicant Service Binding Protocol
  5.2 Supplicant Protocol
-26 [Network Protocols - Bluetooth](protocols/bt/README.md)
+26. [Network Protocols - Bluetooth](protocols/bt/README.md)
  1 EFI Bluetooth Host Controller Protocol
  2 EFI Bluetooth Bus Protocol
  3 EFI Bluetooth Configuration Protocol
-27 [Network Protocols - TCP, IP, IPsec, FTP, TLS and Configurations](protocols/tcpip/README.md)
+27. [Network Protocols - TCP, IP, IPsec, FTP, TLS and Configurations](protocols/tcpip/README.md)
  1 EFI TCPv4 Protocol
  1.1 TCP4 Service Binding Protocol
  1.2 TCP4 Protocol
@@ -403,7 +403,7 @@
  10.1 EFI TLS Service Binding Protocol
  10.2 EFI TLS Protocol
  10.3 EFI TLS Configuration Protocol
-28 [Network Protocols - ARP, DHCP, DNS, HTTP and REST](protocols/addhr/README.md)
+28. [Network Protocols - ARP, DHCP, DNS, HTTP and REST](protocols/addhr/README.md)
  1 ARP Protocol
  2 EFI DHCPv4 Protocol
  3 EFI DHCP6 Protocol
@@ -418,7 +418,7 @@
  6.3 HTTP Utilities Protocol
  7 EFI REST Protocol
  7.1 EFI REST Protocol Definitions
-29 [Network Protocols - UDP and MTFTP](protocols/udp/README.md)
+29. [Network Protocols - UDP and MTFTP](protocols/udp/README.md)
  1 EFI UDP Protocol
  1.1 UDP4 Service Binding Protocol
  1.2 UDP4 Protocol
@@ -429,7 +429,7 @@
  4 EFI MTFTPv6 Protocol
  4.1 MTFTP6 Service Binding Protocol
  4.2 MTFTP6 Protocol
-30 [Secure Boot and Driver Signing](secureboot/README.md)
+30. [Secure Boot and Driver Signing](secureboot/README.md)
  1 Secure Boot
  2 UEFI Driver Signing Overview
  2.1 Digital Signatures
@@ -452,7 +452,7 @@
  5.3 Signature Database Update
  6 Code Definitions
  6.1 UEFI Image Variable GUID & Variable Name
-31 [Human Interface Infrastructure Overview](hii/README.md)
+31. [Human Interface Infrastructure Overview](hii/README.md)
  1 Goals
  2 Design Discussion
  2.1 Drivers And Applications
@@ -481,7 +481,7 @@
  3.8 Forms Package
  3.9 Keyboard Package
  3.10 Animations Package
-32 [HII Protocols](protocols/hii/README.md)
+32. [HII Protocols](protocols/hii/README.md)
  1 Font Protocol
  2 EFI HII Font Ex Protocol
  2.1 Code Definitions
@@ -492,7 +492,7 @@
  7 Font Glyph Generator Protocol
  8 Database Protocol
  8.1 Database Structures
-33 [HII Configuration Processing and Browser Protocol](protocols/hiiconf/README.md)
+33. [HII Configuration Processing and Browser Protocol](protocols/hiiconf/README.md)
  1 Introduction
  1.2 Data Flow
  2 Configuration Strings
@@ -502,7 +502,7 @@
  4 EFI HII Configuration Routing Protocol
  5 EFI HII Configuration Access Protocol
  6 Form Browser Protocol
-34 [User Identification](userid/README.md)
+34. [User Identification](userid/README.md)
  1 User Identification Overview
  1.1 User Identify
  1.2 User Profiles
@@ -535,7 +535,7 @@
  4.15 EFI_USER_INFO_USAGE_DATE_RECORD
  4.16 EFI_USER_INFO_USAGE_COUNT_RECORD
  5 User Information Table
-35 [Secure Technologies](security/README.md)
+35. [Secure Technologies](security/README.md)
  1 Hash Overview
  1.1 Hash References
  1.2 Other Code Definitions
@@ -551,21 +551,21 @@
  6 Smart Card Reader and Smart Card Edge Protocols
  6.1 Smart Card Reader Protocol
  6.2 Smart Card Edge Protocol
-36 [Protocols - Timestamp Protocol](protocols/timestamp/README.md)
+36. [Protocols - Timestamp Protocol](protocols/timestamp/README.md)
  1 EFI Timestamp Protocol
-37 [Appendix A - GUID and Time Formats](appendices/guid-time/README.md)
-38 [Appendix B - Console](appendices/console/README.md)
+37. [Appendix A - GUID and Time Formats](appendices/guid-time/README.md)
+38. [Appendix B - Console](appendices/console/README.md)
  1 EFI_SIMPLE_TEXT_INPUT_PROTOCOL and EFI_SIMPLE_TEXT_INPUT_EX_PROTOCOL
  2 EFI_SIMPLE_TEXT_OUTPUT_PROTOCOL
-39 [Appendix C - Device Path Examples](appendices/devicepath/README.md)
+39. [Appendix C - Device Path Examples](appendices/devicepath/README.md)
  1 Example Computer System
  2 Legacy Floppy
  3 IDE Disk
  4 Secondary Root PCI Bus with PCI to PCI Bridge
  5 ACPI Terms
  6 EFI Device Path as a Name Space
-40 [Appendix D - Status Codes](appendices/status/README.md)
-41 [Appendix E - Universal Network Driver Interfaces](appendices/undi/README.md)
+40. [Appendix D - Status Codes](appendices/status/README.md)
+41. [Appendix E - Universal Network Driver Interfaces](appendices/undi/README.md)
  1 Introduction
  1.1 Definitions
  1.2 Referenced Specifications
@@ -599,19 +599,19 @@
  4.18 Transmit
  4.19 Receive
  4.20 PXE 2.1 specification wire protocol clarifications
-42 [Appendix F - Using the Simple Pointer Protocol](appendices/simple-pointer/README.md)
-43 [Appendix G - Using the EFI Extended SCSI Pass Thru Protocol](appendices/scsi-passthrough/README.md)
-44 [Appendix H - Compression Source Code](appendices/compression/README.md)
-45 [Appendix I - Decompression Source Code](appendices/decompression/README.md)
-46 [Appendix J - EFI Byte Code Virtual Machine Opcode List](appendices/ebc/README.md)
-47 [Appendix K - Alphabetic Function Lists](appendices/alpha-functions/README.md)
-48 [Appendix L - EFI 1.10 Protocol Changes and Deprecation List](appendices/efi-1.10-compat/README.md)
+42. [Appendix F - Using the Simple Pointer Protocol](appendices/simple-pointer/README.md)
+43. [Appendix G - Using the EFI Extended SCSI Pass Thru Protocol](appendices/scsi-passthrough/README.md)
+44. [Appendix H - Compression Source Code](appendices/compression/README.md)
+45. [Appendix I - Decompression Source Code](appendices/decompression/README.md)
+46. [Appendix J - EFI Byte Code Virtual Machine Opcode List](appendices/ebc/README.md)
+47. [Appendix K - Alphabetic Function Lists](appendices/alpha-functions/README.md)
+48. [Appendix L - EFI 1.10 Protocol Changes and Deprecation List](appendices/efi-1.10-compat/README.md)
  1 Protocol and GUID Name Changes from EFI 1.10
  2 Deprecated Protocols
-49 [Appendix M - Formats - Language Codes and Language Code Arrays](appendices/formats/README.md)
+49. [Appendix M - Formats - Language Codes and Language Code Arrays](appendices/formats/README.md)
  1 Specifying individual language codes
  1.1 Specifying language code arrays:
-50 [Appendix N - Common Platform Error Record](appendices/error-record/README.md)
+50. [Appendix N - Common Platform Error Record](appendices/error-record/README.md)
  1 Introduction
  2 Format
  2.1 Record Header
@@ -626,14 +626,14 @@
  2.10 Firmware Error Record Reference
  2.11 DMAr Error Sections
  2.12 Error Status
-51 [Appendix O - UEFI ACPI Data Table](appendices/acpi/README.md)
-52 [Appendix P - Hardware Error Record Persistence Usage](appendices/hardware-error-record/README.md)
+51. [Appendix O - UEFI ACPI Data Table](appendices/acpi/README.md)
+52. [Appendix P - Hardware Error Record Persistence Usage](appendices/hardware-error-record/README.md)
  1 Determining space
  2 Saving Hardware error records
  3 Clearing error record variables
-53 [Appendix Q - References]
+53. [Appendix Q - References]
  1 Related Information
  2 Prerequisite Specifications
  2.1 ACPI Specification
  2.2 Additional Considerations for Itanium-Based Platforms
-54 [Appendix R - Glossary]
+54. [Appendix R - Glossary]
