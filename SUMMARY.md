@@ -635,4 +635,4 @@
  2 Prerequisite Specifications
  2.1 ACPI Specification
  2.2 Additional Considerations for Itanium-Based Platforms
-54. [Appendix R - Glossary](appendices/r-glossary/README.md)
+54. [Appendix R - Glossary](GLOSSARY.md)
