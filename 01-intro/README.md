@@ -46,7 +46,49 @@ of UEFI is to define an evolutionary path from the traditional “PC-AT”-style
 boot world into a legacy-API free environment.
 
 ## UEFI Driver Model Extensions {#extensions}
-foo
+
+Access to boot devices is provided through a set of protocol interfaces. One
+purpose of the UEFI *Driver Model* is to provide a replacement for
+"PC-AT"-style option ROMs. It is important to point out that drivers written to
+the UEFI *Driver Model* are designed to access boot devices in the preboot
+environment.  They are not designed to replace the high-performance,
+OS-specific drivers.
+
+The UEFI Driver Model is designed to support the execution of modular pieces of
+code, also known as drivers, that run in the preboot environment. These drivers
+may manage or control hardware buses and devices on the platform, or they may
+provide some software-derived, platform-specific service.
+
+The *UEFI Driver Model* also contains information required by UEFI driver
+writers to design and implement any combination of bus drivers and device
+drivers that a platform might need to boot a UEFI-compliant OS.
+
+The *UEFI Driver Model* is designed to be generic and can be adapted to any
+type of bus or device.  The *UEFI Specification* describes how to write PCI bus
+drivers, PCI device drivers, USB bus drivers, USB device drivers, and SCSI
+drivers. Additional details are provided that allow UEFI drivers to be stored
+in PCI option ROMs, while maintaining compatibility with legacy option ROM
+images.
+
+One of the design goals in the *UEFI Specification* is keeping the driver
+images as small as possible.  However, if a driver is required to support
+multiple processor architectures, a driver object file would also be required
+to be shipped for each supported processor architecture. To address this space
+issue, this specification also defines the *EFI Byte Code Virtual Machine*. A
+UEFI driver can be compiled into a single EFI Byte Code object file. UEFI
+Specification-complaint firmware must contain an EFI Byte Code interpreter.
+This allows a single EFI Byte Code object file that supports multiple processor
+architectures to be shipped. Another space saving technique is the use of
+compression. This specification defines compression and decompression
+algorithms that may be used to reduce the size of UEFI Drivers, and thus reduce
+the overhead when UEFI Drivers are stored in ROM devices.
+
+The information contained in the *UEFI Specification* can be used by OSVs,
+IHVs, OEMs, and firmware vendors to design and implement firmware conforming to
+this specification, drivers that produce standard protocol interfaces, and
+operating system loaders that can be used to boot UEFI- compliant operating
+systems.
+
 ## Overview {#overview}
 foo
 ## Goals {#goals}
