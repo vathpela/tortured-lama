@@ -1,7 +1,7 @@
 TOPDIR = $(shell pwd)
 GITDIR = $(TOPDIR)/.git/
 BOOKDIR = $(TOPDIR)/_book/
-HEAD = $(shell cut -d\  -f2 $(GITDIR)/HEAD)
+HEAD = $(notdir $(shell cut -d\  -f2 $(GITDIR)/HEAD))
 
 all : | clean
 all : build pdf
