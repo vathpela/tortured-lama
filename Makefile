@@ -1,3 +1,6 @@
+TOPDIR = $(shell pwd)
+GITDIR = $(TOPDIR)/.git/
+BOOKDIR = $(TOPDIR)/_book/
 
 all : | clean
 all : build pdf
@@ -13,8 +16,9 @@ pdf : | build
 publish : | build
 	@cp .gitignore _book/.gitignore
 	git checkout gh-pages
-	GIT_DIR=$(shell pwd)/.git/ GIT_WORK_TREE=$(shell pwd)/_book git -C _book _add .
-	GIT_DIR=$(shell pwd)/.git/ GIT_WORK_TREE=$(shell pwd)/_book git -C _book commit -am "Update build"
+	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) add .
+	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) commit -am "Update build"
+	cd $(TOPDIR)
 	git checkout --force HEAD@{2}
 	$(MAKE) push
 
@@ -22,6 +26,7 @@ push :
 	git push origin +gh-pages:gh-pages
 
 clean :
-	@rm -rvf _book
+	@echo removing '_book'
+	@rm -rf _book/
 
 .PHONY: clean build pdf publish install all push
