@@ -1,5 +1,4 @@
 # Summary
-0. [Acknowledgements](00-front/README.md#ack)
 1. [Introduction](01-intro/README.md#intro)
  1. [UEFI Driver Model Extensions](01-intro/README.md#extensions)
  2. [Overview](01-intro/README.md#overview)
