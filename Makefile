@@ -1,6 +1,7 @@
 TOPDIR = $(shell pwd)
 GITDIR = $(TOPDIR)/.git/
 BOOKDIR = $(TOPDIR)/_book/
+HEAD = $(shell cut -d\  -f2 $(GITDIR)/.git/HEAD)
 
 all : | clean
 all : build pdf
@@ -19,7 +20,7 @@ publish : | build
 	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) add .
 	cd $(BOOKDIR) ; GIT_DIR=$(GITDIR) GIT_WORK_TREE=$(BOOKDIR) git -C $(BOOKDIR) commit -am "Update build"
 	cd $(TOPDIR)
-	git checkout --force HEAD@{2}
+	git checkout --force $(HEAD)
 	$(MAKE) push
 
 push :
