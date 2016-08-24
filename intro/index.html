@@ -1,0 +1,982 @@
+
+<!DOCTYPE HTML>
+<html lang="en" >
+    <head>
+        <title>Introduction · UEFI Specification</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.0">
+        <meta name="author" content="UEFI Forum">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../overview/README.md" />
+    
+    
+    <link rel="prev" href="../" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../overview/README.md">
+            
+                <span>
+            
+                    
+                    Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../bootmanager/README.md">
+            
+                <span>
+            
+                    
+                    Boot Manager
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../systab/README.md">
+            
+                <span>
+            
+                    
+                    EFI System Table
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../gpt/README.md">
+            
+                <span>
+            
+                    
+                    GUID Partition Table (GPT) Disk Layout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../services/boot/README.md">
+            
+                <span>
+            
+                    
+                    Services - Boot Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../rservices/runtime/README.md">
+            
+                <span>
+            
+                    
+                    Services - Runtime Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../protocols/loadedimage/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - EFI Loaded Image
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../protocols/devicepath/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Device Path Protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../protocols/drivermodel/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - UEFI Driver Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../protocols/conio/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Console Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../protocols/media/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Media Access
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../protocols/pcibus/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - PCI Bus Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../protocols/scsi/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - SCSI Driver Models and Bus Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../protocols/iscsiboot/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - iSCSI Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" data-path="../protocols/usb/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - USB Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.18" data-path="../protocols/debugger/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Debugger Support
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.19" data-path="../protocols/compression/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Compression Algorithm Specification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.20" data-path="../protocols/ACPI/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - ACPI Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.21" data-path="../protocols/string/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - String Services
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.22" data-path="../protocols/EBC/README.md">
+            
+                <span>
+            
+                    
+                    EFI Byte Code Virtual Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.23" data-path="../protocols/fwupdate/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Firmware Update and Reporting
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.24" data-path="../protocols/net/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - SNP, PXE, BIS and HTTP Boot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.25" data-path="../protocols/mnp/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - Managed Network
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.26" data-path="../protocols/wifi/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - VLAN, EAP, Wi-Fi and Supplicant
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.27" data-path="../protocols/bt/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - Bluetooth
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.28" data-path="../protocols/tcpip/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - TCP, IP, IPsec, FTP, TLS and Configurations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.29" data-path="../protocols/addhr/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - ARP, DHCP, DNS, HTTP and REST
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.30" data-path="../protocols/udp/README.md">
+            
+                <span>
+            
+                    
+                    Network Protocols - UDP and MTFTP
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.31" data-path="../secureboot/README.md">
+            
+                <span>
+            
+                    
+                    Secure Boot and Driver Signing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.32" data-path="../hii/README.md">
+            
+                <span>
+            
+                    
+                    Human Interface Infrastructure Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.33" data-path="../protocols/hii/README.md">
+            
+                <span>
+            
+                    
+                    HII Protocols
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.34" data-path="../protocols/hiiconf/README.md">
+            
+                <span>
+            
+                    
+                    HII Configuration Processing and Browser Protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.35" data-path="../userid/README.md">
+            
+                <span>
+            
+                    
+                    User Identification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.36" data-path="../security/README.md">
+            
+                <span>
+            
+                    
+                    Secure Technologies
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.37" data-path="../protocols/timestamp/README.md">
+            
+                <span>
+            
+                    
+                    Protocols - Timestamp Protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.38" data-path="../appendices/a-guid-time/README.md">
+            
+                <span>
+            
+                    
+                    Appendix A - GUID and Time Formats
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.39" data-path="../appendices/b-console/README.md">
+            
+                <span>
+            
+                    
+                    Appendix B - Console
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.40" data-path="../appendices/c-devicepath/README.md">
+            
+                <span>
+            
+                    
+                    Appendix C - Device Path Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.41" data-path="../appendices/d-status/README.md">
+            
+                <span>
+            
+                    
+                    Appendix D - Status Codes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.42" data-path="../appendices/e-undi/README.md">
+            
+                <span>
+            
+                    
+                    Appendix E - Universal Network Driver Interfaces
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.43" data-path="../appendices/f-simple-pointer/README.md">
+            
+                <span>
+            
+                    
+                    Appendix F - Using the Simple Pointer Protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.44" data-path="../appendices/g-scsi-passthrough/README.md">
+            
+                <span>
+            
+                    
+                    Appendix G - Using the EFI Extended SCSI Pass Thru Protocol
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.45" data-path="../appendices/h-compression/README.md">
+            
+                <span>
+            
+                    
+                    Appendix H - Compression Source Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.46" data-path="../appendices/i-decompression/README.md">
+            
+                <span>
+            
+                    
+                    Appendix I - Decompression Source Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.47" data-path="../j-appendices/ebc/README.md">
+            
+                <span>
+            
+                    
+                    Appendix J - EFI Byte Code Virtual Machine Opcode List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.48" data-path="../appendices/k-alpha-functions/README.md">
+            
+                <span>
+            
+                    
+                    Appendix K - Alphabetic Function Lists
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.49" data-path="../appendices/l-efi-1.10-compat/README.md">
+            
+                <span>
+            
+                    
+                    Appendix L - EFI 1.10 Protocol Changes and Deprecation List
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.50" data-path="../appendices/m-formats/README.md">
+            
+                <span>
+            
+                    
+                    Appendix M - Formats - Language Codes and Language Code Arrays
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.51" data-path="../appendices/n-error-record/README.md">
+            
+                <span>
+            
+                    
+                    Appendix N - Common Platform Error Record
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.52" data-path="../appendices/o-acpi/README.md">
+            
+                <span>
+            
+                    
+                    Appendix O - UEFI ACPI Data Table
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.53" data-path="../appendices/p-hardware-error-record/README.md">
+            
+                <span>
+            
+                    
+                    Appendix P - Hardware Error Record Persistence Usage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.54" data-path="../appendices/q-references/README.md">
+            
+                <span>
+            
+                    
+                    Appendix Q - References
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.55" data-path="../GLOSSARY.html">
+            
+                <a href="../GLOSSARY.html">
+            
+                    
+                    Appendix R - Glossary
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Introduction</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h2 id="intro">Introduction</h2><p>This <em>Unified Extensible <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">Firmware</a> Interface</em> (hereafter known as UEFI)
+<em>Specification</em> describes an interface between the operating system (OS) and the
+platform <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a>. UEFI was preceded by the <em>Extensible <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">Firmware</a> Interface
+Specification 1.10</em> (<a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a>). As a result, some code and certain <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+services. A protocol consists of a Globally Unique Identifier (GUID), a
+protocol revision number, and a protocol interface structure. The interface
+structure contains data definitions and a set of functions for accessing the
+device. A device can have multiple protocols. Each protocol is accessible
+through the device&#x2019;s handle.">protocol</a> names
+retain the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> designation. Unless otherwise noted, <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> designations in this
+specification may be assumed to be part of UEFI.</p><p>The interface is in the <a href="../GLOSSARY.html#form" class="glossary-term" title="Logical grouping of questions with a unique identifier.">form</a> of data tables that contain platform-related
+information, and boot and runtime service calls that are available to the OS
+loader and the OS. Together, these provide a standard environment for booting
+an OS. This specification is designed as a pure interface specification. As
+such, the specification defines the set of interfaces and structures that
+platform <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> must implement. Similarly, the specification defines the set
+of interfaces and structures that the OS may use in booting. How either the
+<a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> developer chooses to implement the required elements or the OS
+developer chooses to make use of those interfaces and structures is an
+implementation decision left for the developer.</p><p>The intent of this specification is to define a way for the OS and platform
+<a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> to communicate only information necessary to support the OS boot
+process. This is accomplished through a formal and complete abstract
+specification of the software-visible interface presented to the OS by the
+platform and <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a>.</p><p>Using this formal definition, a shrink-wrap OS intended to run on platforms
+compatible with supported processor specifications will be able to boot on a
+variety of system designs without further platform or OS customization. The
+definition will also allow for platform innovation to introduce new features
+and functionality that enhance platform capability without requiring new code
+to be written in the OS boot sequence.</p><p>Furthermore, an abstract specification opens a route to replace legacy devices
+and <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> code over time. New device types and associated code can provide
+equivalent functionality through the same defined abstract interface, again
+without impact on the OS boot support code.</p><p>The specification is applicable to a full range of hardware platforms from
+mobile systems to servers.  The specification provides a core set of services
+along with a selection of <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+services. A protocol consists of a Globally Unique Identifier (GUID), a
+protocol revision number, and a protocol interface structure. The interface
+structure contains data definitions and a set of functions for accessing the
+device. A device can have multiple protocols. Each protocol is accessible
+through the device&#x2019;s handle.">protocol</a> interfaces. The selection of <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+services. A protocol consists of a Globally Unique Identifier (GUID), a
+protocol revision number, and a protocol interface structure. The interface
+structure contains data definitions and a set of functions for accessing the
+device. A device can have multiple protocols. Each protocol is accessible
+through the device&#x2019;s handle.">protocol</a>
+interfaces can evolve over time to be optimized for various platform market
+segments. At the same time, the specification allows maximum extensibility and
+customization abilities for OEMs to allow differentiation. In this, the purpose
+of UEFI is to define an evolutionary path from the traditional &#x201C;<a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a>&#x201D;-style
+boot world into a legacy-API free environment.</p>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../" class="navigation navigation-prev " aria-label="Previous page: Introduction">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../overview/README.md" class="navigation navigation-next " aria-label="Next page: Overview">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"Overview","level":"1.3","depth":1,"path":"overview/README.md","ref":"overview/README.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"root":"./docs","styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"intro/README.md","mtime":"2016-08-24T17:47:13.348Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-24T17:48:16.572Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
