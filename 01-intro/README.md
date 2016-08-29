@@ -90,7 +90,65 @@ operating system loaders that can be used to boot UEFI- compliant operating
 systems.
 
 ## Overview {#overview}
-foo
+
+The UEFI Specification is organized as listed in Table 1.
+
+| Section/Appendix | Description | {#table1}
+| ---------------- | ----------- |
+| [1. Introduction](#intro) | Introduces the UEFI Specification and topics related to using the specification.| 
+| [2. Overview](#overview) | Describes the major components of UEFI, including the boot manager, firmware core, calling conventions, protocols, and requirements.| 
+| 3. Boot Manager | Describes the boot manager, which is used to load drivers and applications written to this specification.| 
+| 4. EFI System Table | Describes the EFI System Table that is passed to every compliant driver and application.| 
+| 5. GUID Partition Table (GPT) Format | Defines a new partitioning scheme that must be supported by firmware conforming to this specification.| 
+| 6. Services — Boot Services | Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.| 
+| 7. Services — Runtime Services| Contains definitions for the fundamental services that are present in a compliant system before and after an OS is booted.| 
+| 8. Protocols — EFI Loaded Image | Defines the EFI Loaded Image Protocol that describes a UEFI Image that has been loaded into memory.| 
+| 9. Protocols — Device Path Protocol | Defines the device path protocol and provides the information needed to construct and manage device paths in the UEFI environment.| 
+| 10. Protocols — UEFI Driver Model | Describes a generic driver model for UEFI. This includes the set of services and protocols that apply to every bus and device type, including the Driver Binding Protocol, the Platform Driver Override Protocol, the Bus Specific Driver Override Protocol, the Driver Diagnostics Protocol, the Driver Configuration Protocol, and the Component Name Protocol.| 
+| 11. Protocols — Console Support | Defines the Console I/O protocols, which handle input and output of text-based information intended for the system user while executing in the boot services environment. These protocols include the Simple Input Protocol, the Simple Text Output Protocol, the Graphics Output Protocol, the Simple Pointer Protocol, and the Serial I/O Protocol.| 
+| 12. Protocols—Media Access | Defines the Load File protocol, file system format and media formats for handling removable media.| 
+| 13. Protocols — PCI Bus Support | Defines PCI Bus Drivers, PCI Device Drivers, and PCI Option ROM layouts. The protocols described include the PCI Root Bridge I/O Protocol and the PCI I/O Protocol.| 
+| 14. Protocols — SCSI Driver Models and Bus Support | Defines the SCSI I/O Protocol and the Extended SCSI Pass Thru Protocol that is used to abstract access to a SCSI channel that is produced by a SCSI host controller.| 
+| 15. Protocols —iSCSI Boot | The iSCSI protocol defines a transport for SCSI data over TCP/IP.| 
+| 16. Protocols — USB Support | Defines USB Bus Drivers and USB Device Drivers. The protocols described include the USB2 Host Controller Protocol and the USB I/O Protocol.| 
+| 17. Protocols — Debugger Support | An optional set of protocols that provide the services required to implement a source-level debugger for the UEFI environment. <br>The EFI Debug Port Protocol provides services to communicate with a remote debug host. The Debug Support Protocol provides services to hook processor exceptions, save the processor context, and restore the processor context. These protocols can be used in the implementation of a debug agent on the target system that interacts with the remote debug host.| 
+| 18. Protocols — Compression Algorithm Specification | Describes in detail the compression/decompression algorithm, as well as the EFI Decompress Protocol. The EFI Decompress Protocol provides a standard decompression interface for use at boot time. The EFI Decompress Protocol is used by a PCI Bus Driver to decompress UEFI drivers stored in PCI Option ROMs.| 
+| 19. Protocols — ACPI Protocols | Defines a protocol that may be used to install or remove an ACPI table from a platform.| 
+| 20. EFI Byte Code Virtual Machine | Defines the EFI Byte Code virtual processor and its instruction set. It also defines how EBC object files are loaded into memory, and the mechanism for transitioning from native code to EBC code and back to native code. The information in this document is sufficient to implement an EFI Byte Code interpreter, an EFI Byte Code compiler, and an EFI Byte Code linker.| 
+| 21. Network Protocols—SNP, PXE, and BIS | Defines the protocols that provide access to network devices while executing in the UEFI boot services environment. These protocols include the Simple Network Protocol, the PXE Base Code Protocol, and the Boot Integrity services (BIS) Protocol.| 
+| 22. Network Protocols—Managed Network | Defines the EFI Managed Network Protocol, which provides raw (unformatted) asynchronous network packet I/O services and Managed Network Service Binding Protocol, which is used to locate communication devices that are supported by an MNP driver.| 
+| 23. Network Protocols—VLAN and EAP | Defines a protocol is to provide a manageability interface for VLAN configurations.| 
+| 24. Network Protocols—TCP, IP, IPsec, FTP and Configuration | Defines the EFI TCPv4 (Transmission Control Protocol version 4) Protocol and the EFI IPv4 (Internet Protocol version 4) Protocol interface.| 
+| 25. Network Protocols—ARP and DHCP | Defines the EFI Address Resolution Protocol (ARP) Protocol interface and the EFI DHCPv4 Protocol.| 
+| 26. Network Protocols—UDPv4 and MTFPv4 | Defines the EFI UDPv4 (User Datagram Protocol version 4) Protocol that interfaces over the EFI IPv4 Protocol and defines the EFI MTFTPv4 Protocol interface that is built on the EFI UDPv4 Protocol.| 
+| 27. Secure Boot and Driver Signing | Describes Secure Boot and a means of generating a digital signature for UEFI.| 
+| 28. Human Interface Infrastructure Overview | Defines the core code and services that are required for an implementation of the Human Interface Infrastructure (HII), including basic mechanisms for managing user input and code definitions for related protocols.| 
+| 29. HII Protocols | Provides code definitions for the HII-related protocols, functions, and type definitions, including management of font, strings, images and databases.| 
+| 30. HII Configuration Processing and Browser Protocol | Describes the data and APIs used to manage the system’s configuration: the actual data that describes the knobs and settings.| 
+| 31. User Identification | Describes services which describe the current user of the platform.| 
+| 32. Firmware Management Protocol | Provides an abstraction for devices to provide firmware management support.| 
+| 33. Secure Technologies | Describes the protocols for utilizing security technologies including cryptographic hashing and key management.| 
+| 34. Protocols - Timestamp Protocol | Provides a platform independent interface for retrieving a high resolution timestamp counter.| 
+| A. GUID and Time Formats | Explains the GUID (Guaranteed Unique Identifier) format.| 
+| B. Console | Describes the requirements for a basic text-based console required by EFI-conformant systems to provide communication capabilities.| 
+| C. Device Path Examples | Examples of use of the data structures that define various hardware devices to the boot services.| 
+| D. Status Codes | Lists success, error, and warning codes returned by UEFI interfaces.| 
+| E. Universal Network Driver Interfaces | Defines the 32/64-bit hardware and software Universal Network Driver Interfaces (UNDIs).| 
+| F. Using the Simple Pointer Protocol | Provides the suggested usage of the Simple Pointer Protocol.| 
+| G. Using the EFI Extended SCSI Pass Thru Protocol | Provides an example of how the SCSI Pass Thru Protocol can be used.| 
+| H. Compression Source Code | The C source code to an implementation of the Compression Algorithm.| 
+| I. Decompression Source Code | The C source code to an implementation of the EFI Decompression Algorithm.| 
+| J. EFI Byte Code Virtual Machine Opcode Lists | A summary of the opcodes in the instruction set of the EFI Byte Code Virtual Machine.| 
+| K. Alphabetic Function List | Lists all UEFI interface functions alphabetically.| 
+| L. EFI 1.10 Protocol Changes and Deprecation Lists | Lists the Protocol, GUID, and revision identifier name changes and the deprecated protocols compared to the EFI Specification 1.10.| 
+| M. Formats—Language Codes and Language Code Arrays | Lists the formats for language codes and language code arrays.| 
+| N. Common Platform Error Record | Describes the common platform error record format for representing platform hardware errors.| 
+| O. UEFI ACPI Table - Defines the UEFI ACPI table format.| 
+| P. Hardware Error Record Persistence Usage | Defines Hardware Error Record Persistence usage.| 
+| Q. References | Lists all necessary or useful specifications, web sites, and other documentation that is referenced in this UEFI specification.| 
+| R. Glossary | Briefly describes terms defined or referenced by this specification.| 
+| Index | Provides an index to the key terms and concepts in the specification.| 
+
 ## Goals {#goals}
 foo
 ## Target Audience {#audience}
