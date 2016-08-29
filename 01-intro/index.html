@@ -383,7 +383,7 @@
     
         <li class="chapter " data-level="1.3" data-path="../02-overview/">
             
-                <a href="../02-overview/">
+                <a href="../02-overview/#overview">
             
                     
                     Overview
@@ -792,7 +792,7 @@
     
         <li class="chapter " data-level="1.4" data-path="../03-bootmanager/">
             
-                <a href="../03-bootmanager/">
+                <a href="../03-bootmanager/#bootman">
             
                     
                     Boot Manager
@@ -1032,7 +1032,7 @@
     
         <li class="chapter " data-level="1.5" data-path="../04-systab/">
             
-                <a href="../04-systab/">
+                <a href="../04-systab/#systab">
             
                     
                     EFI System Table
@@ -8792,16 +8792,7 @@ applicable, to determine what to load during system startup. In cases where
 user interaction is not indicated, the boot manager would determine what to
 load and, if multiple items are to be loaded, what the sequencing of such loads
 would be.">boot manager</a>, <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> core, calling conventions, protocols, and requirements.</td>
-</tr><tr><td>3. <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
-system boot policy. Although a particular boot manager implementation is not
-specified in this document, such code is generally expected to be able to
-enumerate and handle transfers of control to the available OS loaders as well
-as UEFI applications and drivers on a given system. The boot manager would
-typically be responsible for interacting with the system user, where
-applicable, to determine what to load during system startup. In cases where
-user interaction is not indicated, the boot manager would determine what to
-load and, if multiple items are to be loaded, what the sequencing of such loads
-would be.">Boot Manager</a></td>
+</tr><tr><td><a href="#bootman">3. Boot Manager</a></td>
 <td>Describes the <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
 system boot policy. Although a particular boot manager implementation is not
 specified in this document, such code is generally expected to be able to
@@ -8812,26 +8803,16 @@ applicable, to determine what to load during system startup. In cases where
 user interaction is not indicated, the boot manager would determine what to
 load and, if multiple items are to be loaded, what the sequencing of such loads
 would be.">boot manager</a>, which is used to load drivers and applications written to this specification.</td>
-</tr><tr><td>4. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#system-table" class="glossary-term" title="Table that contains the standard input and output handles for a UEFI
-application, as well as pointers to the boot services and runtime services
-tables. It may also contain pointers to other standard tables such as the ACPI,
-SMBIOS, and SAL System tables.  A loaded image receives a pointer to its system
-table when it begins execution. Also called the EFI System Table.">System Table</a></td>
+</tr><tr><td><a href="#systab">4. EFI System Table</a></td>
 <td>Describes the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#system-table" class="glossary-term" title="Table that contains the standard input and output handles for a UEFI
 application, as well as pointers to the boot services and runtime services
 tables. It may also contain pointers to other standard tables such as the ACPI,
 SMBIOS, and SAL System tables.  A loaded image receives a pointer to its system
 table when it begins execution. Also called the EFI System Table.">System Table</a> that is passed to every compliant driver and application.</td>
-</tr><tr><td>5. <a href="../GLOSSARY.html#guid-partition" class="glossary-term" title="A contiguous group of sectors on an EFI Hard Disk.">GUID Partition</a> Table (<a href="../GLOSSARY.html#gpt" class="glossary-term" title="See GUID Partition Table (GPT).">GPT</a>) Format</td>
+</tr><tr><td><a href="#gpt">5. GUID Partition Table (GPT) Format</a></td>
 <td>Defines a new partitioning scheme that must be supported by <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> conforming to this specification.</td>
-</tr><tr><td>6. Services &#x2014; <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
-environment.  The services minimally provide an OS loader with access to
-platform capabilities required to complete OS boot. Services are also available
-to drivers and applications that need access to platform capability. Boot
-services are terminated once the operating system takes control of the
-platform.">Boot Services</a></td>
+</tr><tr><td><a href="#bootservices">6. Services &#x2014; Boot Services</a></td>
 <td>Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.</td>
 </tr><tr><td>7. Services &#x2014; <a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
 may be useful during OS runtime, such as timers. These services are available
@@ -9334,7 +9315,7 @@ operating system-directed power management and system configuration.">ACPI</a> t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-08-29T19:39:21.114Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T19:39:34.028Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-08-29T19:55:25.230Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T19:56:31.661Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
