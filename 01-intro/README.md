@@ -97,10 +97,10 @@ The UEFI Specification is organized as listed in Table 1.
 | ---------------- | ----------- |
 | [1. Introduction](#intro) | Introduces the UEFI Specification and topics related to using the specification.| 
 | [2. Overview](#overview) | Describes the major components of UEFI, including the boot manager, firmware core, calling conventions, protocols, and requirements.| 
-| 3. Boot Manager | Describes the boot manager, which is used to load drivers and applications written to this specification.| 
-| 4. EFI System Table | Describes the EFI System Table that is passed to every compliant driver and application.| 
-| 5. GUID Partition Table (GPT) Format | Defines a new partitioning scheme that must be supported by firmware conforming to this specification.| 
-| 6. Services — Boot Services | Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.| 
+| [3. Boot Manager](#bootman) | Describes the boot manager, which is used to load drivers and applications written to this specification.| 
+| [4. EFI System Table](#systab) | Describes the EFI System Table that is passed to every compliant driver and application.| 
+| [5. GUID Partition Table (GPT) Format](#gpt) | Defines a new partitioning scheme that must be supported by firmware conforming to this specification.| 
+| [6. Services — Boot Services](#bootservices) | Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.| 
 | 7. Services — Runtime Services| Contains definitions for the fundamental services that are present in a compliant system before and after an OS is booted.| 
 | 8. Protocols — EFI Loaded Image | Defines the EFI Loaded Image Protocol that describes a UEFI Image that has been loaded into memory.| 
 | 9. Protocols — Device Path Protocol | Defines the device path protocol and provides the information needed to construct and manage device paths in the UEFI environment.| 
