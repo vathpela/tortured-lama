@@ -8779,11 +8779,10 @@ systems.</p><h2 id="overview">Overview</h2><p>The UEFI Specification is organize
 <th>Description</th>
 <th>{#table1}</th>
 </tr></thead><tbody>
-</tbody></table>
-
-<ol><li>Introduction | Introduces the UEFI Specification and topics related to using the specification.
-</li>
-<li>Overview | Describes the major components of UEFI, including the <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
+<tr><td>1. Introduction</td>
+<td>Introduces the UEFI Specification and topics related to using the specification.</td>
+</tr><tr><td>2. Overview</td>
+<td>Describes the major components of UEFI, including the <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
 system boot policy. Although a particular boot manager implementation is not
 specified in this document, such code is generally expected to be able to
 enumerate and handle transfers of control to the available OS loaders as well
@@ -8792,9 +8791,8 @@ typically be responsible for interacting with the system user, where
 applicable, to determine what to load during system startup. In cases where
 user interaction is not indicated, the boot manager would determine what to
 load and, if multiple items are to be loaded, what the sequencing of such loads
-would be.">boot manager</a>, <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> core, calling conventions, protocols, and requirements.
-</li>
-<li><a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
+would be.">boot manager</a>, <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> core, calling conventions, protocols, and requirements.</td>
+</tr><tr><td>3. <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
 system boot policy. Although a particular boot manager implementation is not
 specified in this document, such code is generally expected to be able to
 enumerate and handle transfers of control to the available OS loaders as well
@@ -8803,7 +8801,8 @@ typically be responsible for interacting with the system user, where
 applicable, to determine what to load during system startup. In cases where
 user interaction is not indicated, the boot manager would determine what to
 load and, if multiple items are to be loaded, what the sequencing of such loads
-would be.">Boot Manager</a> | Describes the <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
+would be.">Boot Manager</a></td>
+<td>Describes the <a href="../GLOSSARY.html#boot-manager" class="glossary-term" title="The part of the firmware implementation that is responsible for implementing
 system boot policy. Although a particular boot manager implementation is not
 specified in this document, such code is generally expected to be able to
 enumerate and handle transfers of control to the available OS loaders as well
@@ -8812,44 +8811,43 @@ typically be responsible for interacting with the system user, where
 applicable, to determine what to load during system startup. In cases where
 user interaction is not indicated, the boot manager would determine what to
 load and, if multiple items are to be loaded, what the sequencing of such loads
-would be.">boot manager</a>, which is used to load drivers and applications written to this specification.
-</li>
-<li><a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+would be.">boot manager</a>, which is used to load drivers and applications written to this specification.</td>
+</tr><tr><td>4. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#system-table" class="glossary-term" title="Table that contains the standard input and output handles for a UEFI
 application, as well as pointers to the boot services and runtime services
 tables. It may also contain pointers to other standard tables such as the ACPI,
 SMBIOS, and SAL System tables.  A loaded image receives a pointer to its system
-table when it begins execution. Also called the EFI System Table.">System Table</a> | Describes the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+table when it begins execution. Also called the EFI System Table.">System Table</a></td>
+<td>Describes the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#system-table" class="glossary-term" title="Table that contains the standard input and output handles for a UEFI
 application, as well as pointers to the boot services and runtime services
 tables. It may also contain pointers to other standard tables such as the ACPI,
 SMBIOS, and SAL System tables.  A loaded image receives a pointer to its system
-table when it begins execution. Also called the EFI System Table.">System Table</a> that is passed to every compliant driver and application.
-</li>
-<li><a href="../GLOSSARY.html#guid-partition" class="glossary-term" title="A contiguous group of sectors on an EFI Hard Disk.">GUID Partition</a> Table (<a href="../GLOSSARY.html#gpt" class="glossary-term" title="See GUID Partition Table (GPT).">GPT</a>) Format | Defines a new partitioning scheme that must be supported by <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> conforming to this specification.
-</li>
-<li>Services &#x2014; <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+table when it begins execution. Also called the EFI System Table.">System Table</a> that is passed to every compliant driver and application.</td>
+</tr><tr><td>5. <a href="../GLOSSARY.html#guid-partition" class="glossary-term" title="A contiguous group of sectors on an EFI Hard Disk.">GUID Partition</a> Table (<a href="../GLOSSARY.html#gpt" class="glossary-term" title="See GUID Partition Table (GPT).">GPT</a>) Format</td>
+<td>Defines a new partitioning scheme that must be supported by <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> conforming to this specification.</td>
+</tr><tr><td>6. Services &#x2014; <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
 environment.  The services minimally provide an OS loader with access to
 platform capabilities required to complete OS boot. Services are also available
 to drivers and applications that need access to platform capability. Boot
 services are terminated once the operating system takes control of the
-platform.">Boot Services</a> | Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.
-</li>
-<li>Services &#x2014; <a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
+platform.">Boot Services</a></td>
+<td>Contains the definitions of the fundamental services that are present in a UEFI-compliant system before an OS is booted.</td>
+</tr><tr><td>7. Services &#x2014; <a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
 may be useful during OS runtime, such as timers. These services are available
 during the boot process but also persist after the OS loader terminates boot
-services.">Runtime Services</a>| Contains definitions for the fundamental services that are present in a compliant system before and after an OS is booted.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Loaded <a href="../GLOSSARY.html#image" class="glossary-term" title="">Image</a> | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+services.">Runtime Services</a></td>
+<td>Contains definitions for the fundamental services that are present in a compliant system before and after an OS is booted.</td>
+</tr><tr><td>8. Protocols &#x2014; <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> Loaded <a href="../GLOSSARY.html#image" class="glossary-term" title="">Image</a></td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Loaded <a href="../GLOSSARY.html#image" class="glossary-term" title="">Image</a> <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> that describes a UEFI <a href="../GLOSSARY.html#image" class="glossary-term" title="">Image</a> that has been loaded into memory.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
+through the device&#x2019;s handle.">Protocol</a> that describes a UEFI <a href="../GLOSSARY.html#image" class="glossary-term" title="">Image</a> that has been loaded into memory.</td>
+</tr><tr><td>9. Protocols &#x2014; <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
 generic device path nodes and is used to define the programmatic path to a
 logical or physical device. There are six major types of device paths: Hardware
 Device Path, ACPI Device Path, Messaging Device Path, Media Device Path, BIOS
@@ -8858,7 +8856,8 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Defines the <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Defines the <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
 generic device path nodes and is used to define the programmatic path to a
 logical or physical device. There are six major types of device paths: Hardware
 Device Path, ACPI Device Path, Messaging Device Path, Media Device Path, BIOS
@@ -8867,12 +8866,12 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">protocol</a> and provides the information needed to construct and manage device paths in the UEFI environment.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#uefi-driver" class="glossary-term" title="A module of code typically inserted into the firmware via protocol interfaces.
+through the device&#x2019;s handle.">protocol</a> and provides the information needed to construct and manage device paths in the UEFI environment.</td>
+</tr><tr><td>10. Protocols &#x2014; <a href="../GLOSSARY.html#uefi-driver" class="glossary-term" title="A module of code typically inserted into the firmware via protocol interfaces.
 Drivers may provide device support during the boot process or they may provide
 platform services. It is important not to confuse UEFI drivers with OS drivers
-that load to provide device support once the OS takes control of the platform.">UEFI Driver</a> Model | Describes a generic driver model for UEFI. This includes the set of services and protocols that apply to every bus and device type, including the Driver Binding <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+that load to provide device support once the OS takes control of the platform.">UEFI Driver</a> Model</td>
+<td>Describes a generic driver model for UEFI. This includes the set of services and protocols that apply to every bus and device type, including the Driver Binding <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
@@ -8902,9 +8901,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Protocols &#x2014; Console Support | Defines the Console I/O protocols, which <a href="../GLOSSARY.html#handle" class="glossary-term" title="See Device Handle.">handle</a> input and output of text-based information intended for the system user while executing in the <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>11. Protocols &#x2014; Console Support</td>
+<td>Defines the Console I/O protocols, which <a href="../GLOSSARY.html#handle" class="glossary-term" title="See Device Handle.">handle</a> input and output of text-based information intended for the system user while executing in the <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
 environment.  The services minimally provide an OS loader with access to
 platform capabilities required to complete OS boot. Services are also available
 to drivers and applications that need access to platform capability. Boot
@@ -8934,21 +8933,21 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Protocols&#x2014;Media Access | Defines the <a href="../GLOSSARY.html#load-file-protocol" class="glossary-term" title="A protocol that is used during boot services to find and load other modules of
-code.">Load File protocol</a>, file system format and media formats for handling removable media.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#pci-bus" class="glossary-term" title="A collection of up to 32 physical PCI Devices that share the same physical PCI
-bus.  All devices on a PCI Bus share the same PCI Configuration Space.">PCI Bus</a> Support | Defines <a href="../GLOSSARY.html#pci-bus" class="glossary-term" title="A collection of up to 32 physical PCI Devices that share the same physical PCI
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>12. Protocols&#x2014;Media Access</td>
+<td>Defines the <a href="../GLOSSARY.html#load-file-protocol" class="glossary-term" title="A protocol that is used during boot services to find and load other modules of
+code.">Load File protocol</a>, file system format and media formats for handling removable media.</td>
+</tr><tr><td>13. Protocols &#x2014; <a href="../GLOSSARY.html#pci-bus" class="glossary-term" title="A collection of up to 32 physical PCI Devices that share the same physical PCI
+bus.  All devices on a PCI Bus share the same PCI Configuration Space.">PCI Bus</a> Support</td>
+<td>Defines <a href="../GLOSSARY.html#pci-bus" class="glossary-term" title="A collection of up to 32 physical PCI Devices that share the same physical PCI
 bus.  All devices on a PCI Bus share the same PCI Configuration Space.">PCI Bus</a> Drivers, PCI Device Drivers, and <a href="../GLOSSARY.html#pci-option-rom" class="glossary-term" title="A ROM device that is accessed through a PCI Controller, and is described in the
 PCI Controller&apos;s Configuration Header. It may contain one or more PCI Device
 Drivers that are used to manage the PCI Controller.">PCI Option ROM</a> layouts. The protocols described include the <a href="../GLOSSARY.html#pci-root-bridge-io-protocol" class="glossary-term" title="A software abstraction that provides access to the PCI I/O, PCI Memory, and PCI
 Prefetchable Memory regions in a single Coherency Domain.">PCI Root Bridge I/O Protocol</a> and the <a href="../GLOSSARY.html#pci-io-protocol" class="glossary-term" title="A software interface that provides access to PCI Memory, PCI I/O, and PCI
 Configuration spaces for a PCI Controller. It also provides an abstraction for
-PCI Bus Master DMA.">PCI I/O Protocol</a>.
-</li>
-<li>Protocols &#x2014; SCSI Driver Models and Bus Support | Defines the SCSI I/O <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+PCI Bus Master DMA.">PCI I/O Protocol</a>.</td>
+</tr><tr><td>14. Protocols &#x2014; SCSI Driver Models and Bus Support</td>
+<td>Defines the SCSI I/O <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
@@ -8958,16 +8957,16 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> that is used to abstract access to a SCSI channel that is produced by a SCSI host controller.
-</li>
-<li>Protocols &#x2014;iSCSI Boot | The iSCSI <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a> that is used to abstract access to a SCSI channel that is produced by a SCSI host controller.</td>
+</tr><tr><td>15. Protocols &#x2014;iSCSI Boot</td>
+<td>The iSCSI <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">protocol</a> defines a transport for SCSI data over TCP/IP.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#usb" class="glossary-term" title="See Universal Serial Bus (USB).">USB</a> Support | Defines <a href="../GLOSSARY.html#usb-bus" class="glossary-term" title="A collection of up to 127 physical USB Devices that share the same physical USB
+through the device&#x2019;s handle.">protocol</a> defines a transport for SCSI data over TCP/IP.</td>
+</tr><tr><td>16. Protocols &#x2014; <a href="../GLOSSARY.html#usb" class="glossary-term" title="See Universal Serial Bus (USB).">USB</a> Support</td>
+<td>Defines <a href="../GLOSSARY.html#usb-bus" class="glossary-term" title="A collection of up to 127 physical USB Devices that share the same physical USB
 bus. All devices on a USB Bus share the bandwidth of the USB Bus.">USB Bus</a> Drivers and <a href="../GLOSSARY.html#usb-device" class="glossary-term" title="A USB peripheral that is physically attached to the USB Bus.">USB Device</a> Drivers. The protocols described include the USB2 Host Controller <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -8978,9 +8977,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Protocols &#x2014; Debugger Support | An optional set of protocols that provide the services required to implement a source-level debugger for the UEFI environment. <br>The <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>17. Protocols &#x2014; Debugger Support</td>
+<td>An optional set of protocols that provide the services required to implement a source-level debugger for the UEFI environment. <br>The <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Debug Port <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -8991,9 +8990,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> provides services to hook processor exceptions, save the processor context, and restore the processor context. These protocols can be used in the implementation of a debug agent on the <a href="../GLOSSARY.html#target" class="glossary-term" title="The system being configured.">target</a> system that interacts with the remote debug host.
-</li>
-<li>Protocols &#x2014; Compression Algorithm Specification | Describes in detail the compression/decompression algorithm, as well as the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a> provides services to hook processor exceptions, save the processor context, and restore the processor context. These protocols can be used in the implementation of a debug agent on the <a href="../GLOSSARY.html#target" class="glossary-term" title="The system being configured.">target</a> system that interacts with the remote debug host.</td>
+</tr><tr><td>18. Protocols &#x2014; Compression Algorithm Specification</td>
+<td>Describes in detail the compression/decompression algorithm, as well as the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Decompress <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -9019,12 +9018,12 @@ Controller. It also loads and starts any UEFI drivers found in any PCI Option
 ROMs discovered during PCI Enumeration. If a driver is found in a PCI Option
 ROM, the PCI Bus Driver will also attach the Bus Specific Driver Override
 Protocol to the handle for the PCI Controller that is associated with the PCI
-Option ROM that the driver was loaded from.">PCI Bus Driver</a> to decompress UEFI drivers stored in PCI Option ROMs.
-</li>
-<li>Protocols &#x2014; <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
+Option ROM that the driver was loaded from.">PCI Bus Driver</a> to decompress UEFI drivers stored in PCI Option ROMs.</td>
+</tr><tr><td>19. Protocols &#x2014; <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
 the concepts and technology it discusses. The specification defines a new
 interface to the system board that enables the operating system to implement
-operating system-directed power management and system configuration.">ACPI</a> Protocols | Defines a <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+operating system-directed power management and system configuration.">ACPI</a> Protocols</td>
+<td>Defines a <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
@@ -9032,10 +9031,10 @@ device. A device can have multiple protocols. Each protocol is accessible
 through the device&#x2019;s handle.">protocol</a> that may be used to install or remove an <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
 the concepts and technology it discusses. The specification defines a new
 interface to the system board that enables the operating system to implement
-operating system-directed power management and system configuration.">ACPI</a> table from a platform.
-</li>
-<li><a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Byte Code Virtual Machine | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+operating system-directed power management and system configuration.">ACPI</a> table from a platform.</td>
+</tr><tr><td>20. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> Byte Code Virtual Machine</td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Byte Code virtual processor and its instruction set. It also defines how <a href="../GLOSSARY.html#ebc" class="glossary-term" title="See EFI Byte Code (EBC).">EBC</a> object files are loaded into memory, and the mechanism for transitioning from <a href="../GLOSSARY.html#native-code" class="glossary-term" title="Low level instructions that are native to the host processor. As such, the
 processor executes them directly with no overhead of interpretation. Contrast
 this with EBC, which must be interpreted by native code to operate on a VM.">native code</a> to <a href="../GLOSSARY.html#ebc" class="glossary-term" title="See EFI Byte Code (EBC).">EBC</a> code and back to <a href="../GLOSSARY.html#native-code" class="glossary-term" title="Low level instructions that are native to the host processor. As such, the
@@ -9044,9 +9043,9 @@ this with EBC, which must be interpreted by native code to operate on a VM.">nat
 and the platform firmware.">EFI</a> Byte Code <a href="../GLOSSARY.html#interpreter" class="glossary-term" title="The software implementation that decodes EBC binary instructions and executes
 them on a VM. Also called EBC interpreter.">interpreter</a>, an <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Byte Code compiler, and an <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Byte Code linker.
-</li>
-<li>Network Protocols&#x2014;SNP, <a href="../GLOSSARY.html#pxe" class="glossary-term" title="See Preboot Execution Environment (PXE).">PXE</a>, and BIS | Defines the protocols that provide access to network devices while executing in the UEFI <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+and the platform firmware.">EFI</a> Byte Code linker.</td>
+</tr><tr><td>21. Network Protocols&#x2014;SNP, <a href="../GLOSSARY.html#pxe" class="glossary-term" title="See Preboot Execution Environment (PXE).">PXE</a>, and BIS</td>
+<td>Defines the protocols that provide access to network devices while executing in the UEFI <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
 environment.  The services minimally provide an OS loader with access to
 platform capabilities required to complete OS boot. Services are also available
 to drivers and applications that need access to platform capability. Boot
@@ -9066,9 +9065,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Network Protocols&#x2014;Managed Network | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>22. Network Protocols&#x2014;Managed Network</td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Managed Network <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -9079,17 +9078,17 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>, which is used to locate communication devices that are supported by an MNP driver.
-</li>
-<li>Network Protocols&#x2014;VLAN and <a href="../GLOSSARY.html#eap" class="glossary-term" title="Extensible Authentication Protocol. An authentication framework which supports
-multiple authentication methods">EAP</a> | Defines a <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a>, which is used to locate communication devices that are supported by an MNP driver.</td>
+</tr><tr><td>23. Network Protocols&#x2014;VLAN and <a href="../GLOSSARY.html#eap" class="glossary-term" title="Extensible Authentication Protocol. An authentication framework which supports
+multiple authentication methods">EAP</a></td>
+<td>Defines a <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">protocol</a> is to provide a manageability interface for VLAN configurations.
-</li>
-<li>Network Protocols&#x2014;TCP, IP, IPsec, FTP and Configuration | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">protocol</a> is to provide a manageability interface for VLAN configurations.</td>
+</tr><tr><td>24. Network Protocols&#x2014;TCP, IP, IPsec, FTP and Configuration</td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> TCPv4 (Transmission Control <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -9111,9 +9110,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> interface.
-</li>
-<li>Network Protocols&#x2014;ARP and <a href="../GLOSSARY.html#dhcp" class="glossary-term" title="See Dynamic Host Configuration Protocol (DHCP).">DHCP</a> | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a> interface.</td>
+</tr><tr><td>25. Network Protocols&#x2014;ARP and <a href="../GLOSSARY.html#dhcp" class="glossary-term" title="See Dynamic Host Configuration Protocol (DHCP).">DHCP</a></td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Address Resolution <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -9130,9 +9129,9 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Network Protocols&#x2014;UDPv4 and MTFPv4 | Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>26. Network Protocols&#x2014;UDPv4 and MTFPv4</td>
+<td>Defines the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> UDPv4 (User Datagram <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
@@ -9161,118 +9160,137 @@ services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-</li>
-<li>Secure Boot and Driver Signing | Describes Secure Boot and a means of generating a digital signature for UEFI.
-</li>
-<li>Human Interface Infrastructure Overview | Defines the core code and services that are required for an implementation of the Human Interface Infrastructure (<a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a>), including basic mechanisms for managing user input and code definitions for related protocols.
-</li>
-<li><a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a> Protocols | Provides code definitions for the <a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a>-related protocols, functions, and type definitions, including management of <a href="../GLOSSARY.html#font" class="glossary-term" title="A graphical representation corresponding to a character set, in this case
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>27. Secure Boot and Driver Signing</td>
+<td>Describes Secure Boot and a means of generating a digital signature for UEFI.</td>
+</tr><tr><td>28. Human Interface Infrastructure Overview</td>
+<td>Defines the core code and services that are required for an implementation of the Human Interface Infrastructure (<a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a>), including basic mechanisms for managing user input and code definitions for related protocols.</td>
+</tr><tr><td>29. <a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a> Protocols</td>
+<td>Provides code definitions for the <a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a>-related protocols, functions, and type definitions, including management of <a href="../GLOSSARY.html#font" class="glossary-term" title="A graphical representation corresponding to a character set, in this case
 Unicode. The following are the same Latin letter in three fonts using the same
 size (14):
 A
 A
-A">font</a>, strings, images and databases.
-</li>
-<li><a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a> Configuration Processing and Browser <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+A">font</a>, strings, images and databases.</td>
+</tr><tr><td>30. <a href="../GLOSSARY.html#hii" class="glossary-term" title="Human Interface Infrastructure.">HII</a> Configuration Processing and Browser <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Describes the data and APIs used to manage the system&#x2019;s configuration: the actual data that describes the knobs and settings.
-</li>
-<li>User Identification | Describes services which describe the current user of the platform.
-</li>
-<li><a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">Firmware</a> Management <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Describes the data and APIs used to manage the system&#x2019;s configuration: the actual data that describes the knobs and settings.</td>
+</tr><tr><td>31. User Identification</td>
+<td>Describes services which describe the current user of the platform.</td>
+</tr><tr><td>32. <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">Firmware</a> Management <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Provides an abstraction for devices to provide <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> management support.
-</li>
-<li>Secure Technologies | Describes the protocols for utilizing security technologies including cryptographic hashing and key management.
-</li>
-<li>Protocols - Timestamp <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Provides an abstraction for devices to provide <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> management support.</td>
+</tr><tr><td>33. Secure Technologies</td>
+<td>Describes the protocols for utilizing security technologies including cryptographic hashing and key management.</td>
+</tr><tr><td>34. Protocols - Timestamp <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Provides a platform independent interface for retrieving a high resolution timestamp counter.
-A. GUID and Time Formats | Explains the GUID (Guaranteed Unique Identifier) format.
-B. Console | Describes the requirements for a basic text-based console required by <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a>-conformant systems to provide communication capabilities.
-C. <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Provides a platform independent interface for retrieving a high resolution timestamp counter.</td>
+</tr><tr><td>A. GUID and Time Formats</td>
+<td>Explains the GUID (Guaranteed Unique Identifier) format.</td>
+</tr><tr><td>B. Console</td>
+<td>Describes the requirements for a basic text-based console required by <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a>-conformant systems to provide communication capabilities.</td>
+</tr><tr><td>C. <a href="../GLOSSARY.html#device-path" class="glossary-term" title="A variable-length binary data structure that is composed of variable-length
 generic device path nodes and is used to define the programmatic path to a
 logical or physical device. There are six major types of device paths: Hardware
 Device Path, ACPI Device Path, Messaging Device Path, Media Device Path, BIOS
-Boot Specification Device Path, and End of Hardware Device Path.">Device Path</a> Examples | Examples of use of the data structures that define various hardware devices to the <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+Boot Specification Device Path, and End of Hardware Device Path.">Device Path</a> Examples</td>
+<td>Examples of use of the data structures that define various hardware devices to the <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
 environment.  The services minimally provide an OS loader with access to
 platform capabilities required to complete OS boot. Services are also available
 to drivers and applications that need access to platform capability. Boot
 services are terminated once the operating system takes control of the
-platform.">boot services</a>.
-D. <a href="../GLOSSARY.html#status-codes" class="glossary-term" title="Success, error, and warning codes returned by boot services and runtime
+platform.">boot services</a>.</td>
+</tr><tr><td>D. <a href="../GLOSSARY.html#status-codes" class="glossary-term" title="Success, error, and warning codes returned by boot services and runtime
 services functions.  string A null-terminated array of 16-bit UCS-2 encoded
 Unicode characters. All strings in this specification are encoded using UCS-2
-unless otherwise specified.">Status Codes</a> | Lists success, error, and warning codes returned by UEFI interfaces.
-E. Universal Network Driver Interfaces | Defines the 32/64-bit hardware and software Universal Network Driver Interfaces (UNDIs).
-F. Using the Simple Pointer <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+unless otherwise specified.">Status Codes</a></td>
+<td>Lists success, error, and warning codes returned by UEFI interfaces.</td>
+</tr><tr><td>E. Universal Network Driver Interfaces</td>
+<td>Defines the 32/64-bit hardware and software Universal Network Driver Interfaces (UNDIs).</td>
+</tr><tr><td>F. Using the Simple Pointer <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Provides the suggested usage of the Simple Pointer <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Provides the suggested usage of the Simple Pointer <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a>.
-G. Using the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a>.</td>
+</tr><tr><td>G. Using the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> Extended SCSI Pass Thru <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> | Provides an example of how the SCSI Pass Thru <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a></td>
+<td>Provides an example of how the SCSI Pass Thru <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> can be used.
-H. Compression Source Code | The C source code to an implementation of the Compression Algorithm.
-I. Decompression Source Code | The C source code to an implementation of the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Decompression Algorithm.
-J. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Byte Code Virtual Machine Opcode Lists | A summary of the opcodes in the instruction set of the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Byte Code Virtual Machine.
-K. Alphabetic Function List | Lists all UEFI interface functions alphabetically.
-L. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+through the device&#x2019;s handle.">Protocol</a> can be used.</td>
+</tr><tr><td>H. Compression Source Code</td>
+<td>The C source code to an implementation of the Compression Algorithm.</td>
+</tr><tr><td>I. Decompression Source Code</td>
+<td>The C source code to an implementation of the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> Decompression Algorithm.</td>
+</tr><tr><td>J. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> Byte Code Virtual Machine Opcode Lists</td>
+<td>A summary of the opcodes in the instruction set of the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> Byte Code Virtual Machine.</td>
+</tr><tr><td>K. Alphabetic Function List</td>
+<td>Lists all UEFI interface functions alphabetically.</td>
+</tr><tr><td>L. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
 and the platform firmware.">EFI</a> 1.10 <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
-through the device&#x2019;s handle.">Protocol</a> Changes and Deprecation Lists | Lists the <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+through the device&#x2019;s handle.">Protocol</a> Changes and Deprecation Lists</td>
+<td>Lists the <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
 services. A protocol consists of a Globally Unique Identifier (GUID), a
 protocol revision number, and a protocol interface structure. The interface
 structure contains data definitions and a set of functions for accessing the
 device. A device can have multiple protocols. Each protocol is accessible
 through the device&#x2019;s handle.">Protocol</a>, GUID, and revision identifier name changes and the deprecated protocols compared to the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
-and the platform firmware.">EFI</a> Specification 1.10.
-M. Formats&#x2014;Language Codes and Language Code Arrays | Lists the formats for language codes and language code arrays.
-N. Common Platform Error Record | Describes the common platform error record format for representing platform hardware errors.
-O. UEFI <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
+and the platform firmware.">EFI</a> Specification 1.10.</td>
+</tr><tr><td>M. Formats&#x2014;Language Codes and Language Code Arrays</td>
+<td>Lists the formats for language codes and language code arrays.</td>
+</tr><tr><td>N. Common Platform Error Record</td>
+<td>Describes the common platform error record format for representing platform hardware errors.</td>
+</tr><tr><td>O. UEFI <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
 the concepts and technology it discusses. The specification defines a new
 interface to the system board that enables the operating system to implement
 operating system-directed power management and system configuration.">ACPI</a> Table - Defines the UEFI <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
 the concepts and technology it discusses. The specification defines a new
 interface to the system board that enables the operating system to implement
-operating system-directed power management and system configuration.">ACPI</a> table format.
-P. Hardware Error Record Persistence Usage | Defines Hardware Error Record Persistence usage.
-Q. References | Lists all necessary or useful specifications, web sites, and other documentation that is referenced in this UEFI specification.
-R. Glossary | Briefly describes terms defined or referenced by this specification.
-Index | Provides an index to the key terms and concepts in the specification.
-</li></ol>
+operating system-directed power management and system configuration.">ACPI</a> table format.</td>
+</tr><tr><td>P. Hardware Error Record Persistence Usage</td>
+<td>Defines Hardware Error Record Persistence usage.</td>
+</tr><tr><td>Q. References</td>
+<td>Lists all necessary or useful specifications, web sites, and other documentation that is referenced in this UEFI specification.</td>
+</tr><tr><td>R. Glossary</td>
+<td>Briefly describes terms defined or referenced by this specification.</td>
+</tr><tr><td>Index</td>
+<td>Provides an index to the key terms and concepts in the specification.</td>
+</tr></tbody></table>
+
 <h2 id="goals">Goals</h2><p>foo</p><h2 id="audience">Target Audience</h2><p>foo</p><h2 id="design-overview">UEFI Design Overview</h2><p>foo</p><h2 id="driver-model">UEFI Driver Model</h2><p>foo</p><h3 id="driver-model-goals">UEFI Driver Model Goals</h3><p>foo</p><h3 id="legacy-oprom">Legacy Option ROM Issues</h3><p>foo</p><h3 id="migration">Migration Requirements</h3><p>foo</p><h3 id="legacy-os">Legacy Operating System Support</h3><p>foo</p><h3 id="csm">Supporting the UEFI Specification on a Legacy Platform</h3><p>foo</p><h2 id="conventions">Conventions Used in this Document</h2><p>foo</p><h3 id="data-structures">Data Structure Descriptions</h3><p>foo</p><h3 id="protocols">Protocol Descriptions</h3><p>foo</p><h3 id="procedures">Procedure Descriptions</h3><p>foo</p><h3 id="instructions">Instruction Descriptions</h3><p>foo</p><h3 id="pseudocode">Pseudo-Code Conventions</h3><p>foo</p><h3 id="typography">Typographic Conventions</h3><p>foo</p><h3 id="numbers">Number formats</h3><p>foo</p><h3 id="binary">Binary prefixes</h3><p>foo</p>
                                 
                                 </section>
@@ -9316,7 +9334,7 @@ Index | Provides an index to the key terms and concepts in the specification.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-08-29T18:54:16.372Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T19:00:26.889Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-08-29T19:05:15.653Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T19:05:32.459Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
