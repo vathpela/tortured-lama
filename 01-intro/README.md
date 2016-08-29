@@ -91,9 +91,9 @@ systems.
 
 ## Overview {#overview}
 
-The UEFI Specification is organized as listed in Table 1.
+The UEFI Specification is organized as listed in [Table 1](#table1).
 
-| Section/Appendix | Description | {#table1}
+| Section/Appendix | Description |
 | ---------------- | ----------- |
 | [1. Introduction](#intro) | Introduces the UEFI Specification and topics related to using the specification.| 
 | [2. Overview](#overview) | Describes the major components of UEFI, including the boot manager, firmware core, calling conventions, protocols, and requirements.| 
@@ -147,7 +147,8 @@ The UEFI Specification is organized as listed in Table 1.
 | P. Hardware Error Record Persistence Usage | Defines Hardware Error Record Persistence usage.| 
 | Q. References | Lists all necessary or useful specifications, web sites, and other documentation that is referenced in this UEFI specification.| 
 | R. Glossary | Briefly describes terms defined or referenced by this specification.| 
-| Index | Provides an index to the key terms and concepts in the specification.| 
+| Index | Provides an index to the key terms and concepts in the specification.|
+<a name="table1">Table 1</a>
 
 ## Goals {#goals}
 foo
