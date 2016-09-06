@@ -3,6 +3,16 @@
 <p class="no-glossary" style='text-align:right;float:right;'>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 Unified Extensible Firmware Interface<br>
 Specification<br>
 Version 2.6<br>

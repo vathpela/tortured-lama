@@ -263,9 +263,83 @@ additional attributes embodied in this specification:
   possible.
 
 ## Target Audience {#audience}
-foo
+
+This document is intended for the following readers:
+- IHVs and OEMs who will be implementing UEFI drivers.
+- OEMs who will be creating supported processor platforms intended to boot shrink-wrap operating systems.
+- BIOS developers, either those who create general-purpose BIOS and other
+  firmware products or those who modify these products for use in supported
+  processor-based products.
+- Operating system developers who will be adapting their shrink-wrap operating
+  system products to run on supported processor-based platforms.
+
 ## UEFI Design Overview {#design-overview}
-foo
+The design of UEFI is based on the following fundamental elements:
+- Reuse of existing table-based interfaces. In order to preserve investment in
+  existing infrastructure support code, both in the OS and firmware, a number
+  of existing specifications that are commonly implemented on platforms
+  compatible with supported processor specifications must be implemented on
+  platforms wishing to comply with the UEFI specification. (For additional
+  information, see Appendix Q.)
+- System partition. The System partition defines a partition and file system
+  that are designed to allow safe sharing between multiple vendors, and for
+  different purposes. The ability to include a separate, sharable system
+  partition presents an opportunity to increase platform value-add without
+  significantly growing the need for nonvolatile platform memory.
+- Boot services. Boot services provide interfaces for devices and system
+  functionality that can be used during boot time. Device access is abstracted
+  through “handles” and “protocols.” This facilitates reuse of investment in
+  existing BIOS code by keeping underlying implementation requirements out of
+  the specification without burdening the consumer accessing the device.
+- Runtime services. A minimal set of runtime services is presented to ensure
+  appropriate abstraction of base platform hardware resources that may be
+  needed by the OS during its normal operations.
+
+Figure 1 shows the principal components of UEFI and their relationship to platform hardware and
+OS software.
+
+OPERATING SYSTEM
+
+EFI OS LOADER
+
+(OTHER)
+SMBIOS
+ACPI
+
+EFI RUNTIME
+SERVICES
+
+EFI BOOT SERVICES
+
+INTERFACES
+FROM
+OTHER
+REQUIRED
+SPECS
+
+PLATFORM HARDWARE
+EFI SYSTEM PARTITION
+EFI OS
+LOADER
+
+OM13141
+
+Figure 1. UEFI Conceptual Overview
+
+Figure 1 illustrates the interactions of the various components of an UEFI
+specification-compliant system that are used to accomplish platform and OS
+boot.  The platform firmware is able to retrieve the OS loader image from the
+System Partition. The specification provides for a variety of mass storage
+device types including disk, CD-ROM, and DVD as well as remote boot via a
+network. Through the extensible protocol interfaces, it is possible to add
+other boot media types, although these may require OS loader modifications if
+they require use of protocols other than those defined in this document.  Once
+started, the OS loader continues to boot the complete operating system. To do
+so, it may use the EFI boot services and interfaces defined by this or other
+required specifications to survey, comprehend, and initialize the various
+platform components and the OS software that manages them. EFI runtime services
+are also available to the OS loader during the boot phase.
+
 ## UEFI Driver Model {#driver-model}
 foo
 ### UEFI Driver Model Goals {#driver-model-goals}
