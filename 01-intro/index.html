@@ -9267,7 +9267,134 @@ operating system-directed power management and system configuration.">ACPI</a> t
 <td>Provides an index to the key terms and concepts in the specification.</td>
 </tr></tbody></table>
 
-<p><a name="#table1">Table 1</a></p><h2 id="goals">Goals</h2><p>foo</p><h2 id="audience">Target Audience</h2><p>foo</p><h2 id="design-overview">UEFI Design Overview</h2><p>foo</p><h2 id="driver-model">UEFI Driver Model</h2><p>foo</p><h3 id="driver-model-goals">UEFI Driver Model Goals</h3><p>foo</p><h3 id="legacy-oprom">Legacy Option ROM Issues</h3><p>foo</p><h3 id="migration">Migration Requirements</h3><p>foo</p><h3 id="legacy-os">Legacy Operating System Support</h3><p>foo</p><h3 id="csm">Supporting the UEFI Specification on a Legacy Platform</h3><p>foo</p><h2 id="conventions">Conventions Used in this Document</h2><p>foo</p><h3 id="data-structures">Data Structure Descriptions</h3><p>foo</p><h3 id="protocols">Protocol Descriptions</h3><p>foo</p><h3 id="procedures">Procedure Descriptions</h3><p>foo</p><h3 id="instructions">Instruction Descriptions</h3><p>foo</p><h3 id="pseudocode">Pseudo-Code Conventions</h3><p>foo</p><h3 id="typography">Typographic Conventions</h3><p>foo</p><h3 id="numbers">Number formats</h3><p>foo</p><h3 id="binary">Binary prefixes</h3><p>foo</p>
+<p><a name="#table1">Table 1</a></p><h2 id="goals">Goals</h2><p>The &#x201C;<a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a>&#x201D; boot environment presents significant challenges to innovation
+within the industry.  Each new platform capability or hardware innovation
+requires <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> developers to craft increasingly complex solutions, and often
+requires OS developers to make changes to their boot code before customers can
+benefit from the innovation. This can be a time-consuming process requiring a
+significant investment of resources.  The primary goal of the UEFI
+specification is to define an alternative boot environment that can alleviate
+some of these considerations. In this goal, the specification is similar to
+other existing boot specifications. The main properties of this specification
+can be summarized by these attributes:</p><ul><li>Coherent, scalable platform environment. The specification defines a complete
+solution for the <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> to describe all platform features and surface
+platform capabilities to the OS during the boot process. The definitions are
+rich enough to cover a range of contemporary processor designs.
+</li>
+<li>Abstraction of the OS from the <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a>. The specification defines interfaces
+to platform capabilities. Through the use of abstract interfaces, the
+specification allows the OS loader to be constructed with far less knowledge
+of the platform and <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> that underlie those interfaces.  The interfaces
+represent a well-defined and stable boundary between the underlying platform
+and <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> implementation and the OS loader. Such a boundary allows the
+underlying <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> and the OS loader to change provided both limit their
+interactions to the defined interfaces.
+</li>
+<li>Reasonable device abstraction free of legacy interfaces. &#x201C;<a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a>&#x201D; <a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a>
+interfaces require the OS loader to have specific knowledge of the workings
+of certain hardware devices. This specification provides OS loader developers
+with something different: abstract interfaces that make it possible to build
+code that works on a range of underlying hardware devices without having
+explicit knowledge of the specifics for each device in the range.
+</li>
+<li>Abstraction of Option ROMs from the <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a>. This specification defines
+interfaces to platform capabilities including standard bus types such as PCI,
+<a href="../GLOSSARY.html#usb" class="glossary-term" title="See Universal Serial Bus (USB).">USB</a>, and SCSI. The list of supported bus types may grow over time, so a
+mechanism to extend to future bus types is included. These defined
+interfaces, and the ability to extend to future bus types, are components of
+the <a href="../GLOSSARY.html#uefi-driver" class="glossary-term" title="A module of code typically inserted into the firmware via protocol interfaces.
+Drivers may provide device support during the boot process or they may provide
+platform services. It is important not to confuse UEFI drivers with OS drivers
+that load to provide device support once the OS takes control of the platform.">UEFI Driver</a> Model. One purpose of the <a href="../GLOSSARY.html#uefi-driver" class="glossary-term" title="A module of code typically inserted into the firmware via protocol interfaces.
+Drivers may provide device support during the boot process or they may provide
+platform services. It is important not to confuse UEFI drivers with OS drivers
+that load to provide device support once the OS takes control of the platform.">UEFI Driver</a> Model is to solve a
+wide range of issues that are present in existing &#x201C;<a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a>&#x201D; option ROMs. Like
+OS loaders, drivers use the abstract interfaces so device drivers and bus
+drivers can be constructed with far less knowledge of the platform and
+<a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> that underlie those interfaces.
+</li>
+<li>Architecturally shareable system <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a>. Initiatives to expand platform
+capabilities and add new devices often require software support. In many
+cases, when these platform innovations are activated before the OS takes
+control of the platform, they must be supported by code that is specific to
+the platform rather than to the customer&#x2019;s choice of OS. The traditional
+approach to this problem has been to embed code in the platform during
+manufacturing (for example, in flash memory devices). Demand for such
+persistent storage is increasing at a rapid rate. This specification defines
+persistent store on large mass storage media types for use by platform
+support code extensions to supplement the traditional approach. The
+definition of how this works is made clear in the specification to ensure
+that <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> developers, OEMs, operating system vendors, and perhaps even
+third parties can share the space safely while adding to platform capability.
+</li></ul>
+<p>Defining a boot environment that delivers these attributes could be
+accomplished in many ways.  Indeed, several alternatives, perhaps viable from
+an academic point of view, already existed at the time this specification was
+written. These alternatives, however, typically presented high barriers to
+entry given the current infrastructure capabilities surrounding supported
+processor platforms. This specification is intended to deliver the attributes
+listed above, while also recognizing the unique needs of an industry that has
+considerable investment in compatibility and a large installed base of systems
+that cannot be abandoned summarily. These needs drive the requirements for the
+additional attributes embodied in this specification:</p><ul><li>Evolutionary, not revolutionary. The interfaces and structures in the
+specification are designed to reduce the burden of an initial implementation
+as much as possible. While care has been taken to ensure that appropriate
+abstractions are maintained in the interfaces themselves, the design also
+ensures that reuse of <a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a> code to implement the interfaces is possible with
+a minimum of additional coding effort. In other words, on <a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a> platforms the
+specification can be implemented initially as a thin interface layer over an
+underlying implementation based on existing code. At the same time,
+introduction of the abstract interfaces provides for migration away from
+legacy code in the future. Once the abstraction is established as the means
+for the <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> and OS loader to interact during boot, developers are free
+to replace legacy code underneath the abstract interfaces at leisure. A
+similar migration for hardware legacy is also possible. Since the
+abstractions hide the specifics of devices, it is possible to remove
+underlying hardware, and replace it with new hardware that provides improved
+functionality, reduced cost, or both. Clearly this requires that new platform
+<a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> be written to support the device and present it to the OS loader via
+the abstract interfaces. However, without the interface abstraction, removal
+of the legacy device might not be possible at all.
+</li>
+<li>Compatibility by design. The design of the system <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a> structures also
+preserves all the structures that are currently used in the &#x201C;<a href="../GLOSSARY.html#pc-at" class="glossary-term" title="Refers to a PC platform that uses the AT form factor for their motherboards.">PC-AT</a>&#x201D; boot
+environment. Thus, it is a simple matter to construct a single system that is
+capable of booting a legacy OS or an <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a>-aware OS from the same disk.
+</li>
+<li>Simplifies addition of OS-neutral platform value-add. The specification
+defines an open, extensible interface that lends itself to the creation of
+platform &#x201C;drivers.&#x201D; These may be analogous to OS drivers, providing support
+for new device types during the boot process, or they may be used to
+implement enhanced platform capabilities, such as fault tolerance or
+security.  Furthermore, this ability to extend platform capability is
+designed into the specification from the outset. This is intended to help
+developers avoid many of the frustrations inherent in trying to squeeze new
+code into the traditional <a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a> environment. As a result of the inclusion of
+interfaces to add new protocols, OEMs or <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> developers have an
+infrastructure to add capability to the platform in a modular way. Such
+drivers may potentially be implemented using high-level coding languages
+because of the calling conventions and environment defined in the
+specification. This in turn may help to reduce the difficulty and cost of
+innovation. The option of a system <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a> provides an alternative to
+nonvolatile memory storage for such extensions.
+</li>
+<li>Built on existing investment. Where possible, the specification avoids
+redefining interfaces and structures in areas where existing industry
+specifications provide adequate coverage. For example, the <a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
+the concepts and technology it discusses. The specification defines a new
+interface to the system board that enables the operating system to implement
+operating system-directed power management and system configuration.">ACPI</a> specification
+provides the OS with all the information necessary to discover and configure
+platform resources. Again, this philosophical choice for the design of the
+specification is intended to keep barriers to its adoption as low as
+possible.
+</li></ul>
+<h2 id="audience">Target Audience</h2><p>foo</p><h2 id="design-overview">UEFI Design Overview</h2><p>foo</p><h2 id="driver-model">UEFI Driver Model</h2><p>foo</p><h3 id="driver-model-goals">UEFI Driver Model Goals</h3><p>foo</p><h3 id="legacy-oprom">Legacy Option ROM Issues</h3><p>foo</p><h3 id="migration">Migration Requirements</h3><p>foo</p><h3 id="legacy-os">Legacy Operating System Support</h3><p>foo</p><h3 id="csm">Supporting the UEFI Specification on a Legacy Platform</h3><p>foo</p><h2 id="conventions">Conventions Used in this Document</h2><p>foo</p><h3 id="data-structures">Data Structure Descriptions</h3><p>foo</p><h3 id="protocols">Protocol Descriptions</h3><p>foo</p><h3 id="procedures">Procedure Descriptions</h3><p>foo</p><h3 id="instructions">Instruction Descriptions</h3><p>foo</p><h3 id="pseudocode">Pseudo-Code Conventions</h3><p>foo</p><h3 id="typography">Typographic Conventions</h3><p>foo</p><h3 id="numbers">Number formats</h3><p>foo</p><h3 id="binary">Binary prefixes</h3><p>foo</p>
                                 
                                 </section>
                             
@@ -9310,7 +9437,7 @@ operating system-directed power management and system configuration.">ACPI</a> t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-08-29T20:44:18.483Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-08-29T20:44:23.959Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-09-06T20:46:47.067Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-06T20:47:33.658Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
