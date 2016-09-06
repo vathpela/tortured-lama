@@ -9394,7 +9394,114 @@ platform resources. Again, this philosophical choice for the design of the
 specification is intended to keep barriers to its adoption as low as
 possible.
 </li></ul>
-<h2 id="audience">Target Audience</h2><p>foo</p><h2 id="design-overview">UEFI Design Overview</h2><p>foo</p><h2 id="driver-model">UEFI Driver Model</h2><p>foo</p><h3 id="driver-model-goals">UEFI Driver Model Goals</h3><p>foo</p><h3 id="legacy-oprom">Legacy Option ROM Issues</h3><p>foo</p><h3 id="migration">Migration Requirements</h3><p>foo</p><h3 id="legacy-os">Legacy Operating System Support</h3><p>foo</p><h3 id="csm">Supporting the UEFI Specification on a Legacy Platform</h3><p>foo</p><h2 id="conventions">Conventions Used in this Document</h2><p>foo</p><h3 id="data-structures">Data Structure Descriptions</h3><p>foo</p><h3 id="protocols">Protocol Descriptions</h3><p>foo</p><h3 id="procedures">Procedure Descriptions</h3><p>foo</p><h3 id="instructions">Instruction Descriptions</h3><p>foo</p><h3 id="pseudocode">Pseudo-Code Conventions</h3><p>foo</p><h3 id="typography">Typographic Conventions</h3><p>foo</p><h3 id="numbers">Number formats</h3><p>foo</p><h3 id="binary">Binary prefixes</h3><p>foo</p>
+<h2 id="audience">Target Audience</h2><p>This document is intended for the following readers:</p><ul><li>IHVs and OEMs who will be implementing UEFI drivers.
+</li>
+<li>OEMs who will be creating supported processor platforms intended to boot shrink-wrap operating systems.
+</li>
+<li><a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a> developers, either those who create general-purpose <a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a> and other
+<a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> products or those who modify these products for use in supported
+processor-based products.
+</li>
+<li>Operating system developers who will be adapting their shrink-wrap operating
+system products to run on supported processor-based platforms.
+</li></ul>
+<h2 id="design-overview">UEFI Design Overview</h2><p>The design of UEFI is based on the following fundamental elements:</p><ul><li>Reuse of existing table-based interfaces. In order to preserve investment in
+existing infrastructure support code, both in the OS and <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a>, a number
+of existing specifications that are commonly implemented on platforms
+compatible with supported processor specifications must be implemented on
+platforms wishing to comply with the UEFI specification. (For additional
+information, see Appendix Q.)
+</li>
+<li>System <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a>. The System <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a> defines a <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a> and file system
+that are designed to allow safe sharing between multiple vendors, and for
+different purposes. The ability to include a separate, sharable system
+<a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">partition</a> presents an opportunity to increase platform value-add without
+significantly growing the need for nonvolatile platform memory.
+</li>
+<li><a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+environment.  The services minimally provide an OS loader with access to
+platform capabilities required to complete OS boot. Services are also available
+to drivers and applications that need access to platform capability. Boot
+services are terminated once the operating system takes control of the
+platform.">Boot services</a>. <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+environment.  The services minimally provide an OS loader with access to
+platform capabilities required to complete OS boot. Services are also available
+to drivers and applications that need access to platform capability. Boot
+services are terminated once the operating system takes control of the
+platform.">Boot services</a> provide interfaces for devices and system
+functionality that can be used during boot time. Device access is abstracted
+through &#x201C;handles&#x201D; and &#x201C;protocols.&#x201D; This facilitates reuse of investment in
+existing <a href="../GLOSSARY.html#bios" class="glossary-term" title="Basic Input/Output System. A collection of low-level I/O service routines.">BIOS</a> code by keeping underlying implementation requirements out of
+the specification without burdening the consumer accessing the device.
+</li>
+<li><a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
+may be useful during OS runtime, such as timers. These services are available
+during the boot process but also persist after the OS loader terminates boot
+services.">Runtime services</a>. A minimal set of <a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
+may be useful during OS runtime, such as timers. These services are available
+during the boot process but also persist after the OS loader terminates boot
+services.">runtime services</a> is presented to ensure
+appropriate abstraction of base platform hardware resources that may be
+needed by the OS during its normal operations.
+</li></ul>
+<p>Figure 1 shows the principal components of UEFI and their relationship to platform hardware and
+OS software.</p><p>OPERATING SYSTEM</p><p><a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> OS LOADER</p><p>(OTHER)
+<a href="../GLOSSARY.html#smbios" class="glossary-term" title="See System Management BIOS (SMBIOS).">SMBIOS</a>
+<a href="../GLOSSARY.html#acpi" class="glossary-term" title="Refers to the Advanced Configuration and Power Interface Specification and to
+the concepts and technology it discusses. The specification defines a new
+interface to the system board that enables the operating system to implement
+operating system-directed power management and system configuration.">ACPI</a></p><p><a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> RUNTIME
+SERVICES</p><p><a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+environment.  The services minimally provide an OS loader with access to
+platform capabilities required to complete OS boot. Services are also available
+to drivers and applications that need access to platform capability. Boot
+services are terminated once the operating system takes control of the
+platform.">BOOT SERVICES</a></p><p>INTERFACES
+FROM
+OTHER
+REQUIRED
+SPECS</p><p>PLATFORM HARDWARE
+<a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> SYSTEM <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">PARTITION</a>
+<a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> OS
+LOADER</p><p>OM13141</p><p>Figure 1. UEFI Conceptual Overview</p><p>Figure 1 illustrates the interactions of the various components of an UEFI
+specification-compliant system that are used to accomplish platform and OS
+boot.  The platform <a href="../GLOSSARY.html#firmware" class="glossary-term" title="Any software that is included in read-only memory (ROM).">firmware</a> is able to retrieve the OS loader <a href="../GLOSSARY.html#image" class="glossary-term" title="">image</a> from the
+System <a href="../GLOSSARY.html#partition" class="glossary-term" title="A contiguous set of LBAs on a disk, described by the MBR and/or GPT disk
+layouts.">Partition</a>. The specification provides for a variety of mass storage
+device types including disk, CD-<a href="../GLOSSARY.html#rom" class="glossary-term" title="See Question .">ROM</a>, and DVD as well as remote boot via a
+network. Through the extensible <a href="../GLOSSARY.html#protocol" class="glossary-term" title="The information that defines how to access a certain type of device during boot
+services. A protocol consists of a Globally Unique Identifier (GUID), a
+protocol revision number, and a protocol interface structure. The interface
+structure contains data definitions and a set of functions for accessing the
+device. A device can have multiple protocols. Each protocol is accessible
+through the device&#x2019;s handle.">protocol</a> interfaces, it is possible to add
+other boot media types, although these may require OS loader modifications if
+they require use of protocols other than those defined in this document.  Once
+started, the OS loader continues to boot the complete operating system. To do
+so, it may use the <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#boot-services" class="glossary-term" title="The collection of interfaces and protocols that are present in the boot
+environment.  The services minimally provide an OS loader with access to
+platform capabilities required to complete OS boot. Services are also available
+to drivers and applications that need access to platform capability. Boot
+services are terminated once the operating system takes control of the
+platform.">boot services</a> and interfaces defined by this or other
+required specifications to survey, comprehend, and initialize the various
+platform components and the OS software that manages them. <a href="../GLOSSARY.html#efi" class="glossary-term" title="Extensible Firmware Interface. An interface between the operating system (OS)
+and the platform firmware.">EFI</a> <a href="../GLOSSARY.html#runtime-services" class="glossary-term" title="Interfaces that provide access to underlying platform specific hardware that
+may be useful during OS runtime, such as timers. These services are available
+during the boot process but also persist after the OS loader terminates boot
+services.">runtime services</a>
+are also available to the OS loader during the boot phase.</p><h2 id="driver-model">UEFI Driver Model</h2><p>foo</p><h3 id="driver-model-goals">UEFI Driver Model Goals</h3><p>foo</p><h3 id="legacy-oprom">Legacy Option ROM Issues</h3><p>foo</p><h3 id="migration">Migration Requirements</h3><p>foo</p><h3 id="legacy-os">Legacy Operating System Support</h3><p>foo</p><h3 id="csm">Supporting the UEFI Specification on a Legacy Platform</h3><p>foo</p><h2 id="conventions">Conventions Used in this Document</h2><p>foo</p><h3 id="data-structures">Data Structure Descriptions</h3><p>foo</p><h3 id="protocols">Protocol Descriptions</h3><p>foo</p><h3 id="procedures">Procedure Descriptions</h3><p>foo</p><h3 id="instructions">Instruction Descriptions</h3><p>foo</p><h3 id="pseudocode">Pseudo-Code Conventions</h3><p>foo</p><h3 id="typography">Typographic Conventions</h3><p>foo</p><h3 id="numbers">Number formats</h3><p>foo</p><h3 id="binary">Binary prefixes</h3><p>foo</p>
                                 
                                 </section>
                             
@@ -9437,7 +9544,7 @@ possible.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-09-06T20:46:47.067Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-06T20:47:33.658Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Introduction","level":"1.2","depth":1,"next":{"title":"UEFI Driver Model Extensions","level":"1.2.1","depth":2,"anchor":"#extensions","path":"01-intro/README.md","ref":"01-intro/README.md#extensions","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["autocover"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"autocover":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"UEFI Forum","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"UEFI Specification","language":"en","gitbook":">=3.2.0"},"file":{"path":"01-intro/README.md","mtime":"2016-09-06T20:54:09.969Z","type":"markdown"},"gitbook":{"version":"3.2.0","time":"2016-09-06T20:54:51.427Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
