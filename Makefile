@@ -7,6 +7,11 @@ STAGING := $(shell mktemp -d)
 all : | clean
 all : build pdf
 
+dump :
+	@rm -rf $(TOPDIR)/xmlout
+	@mkdir $(TOPDIR)/xmlout
+	./dumpxml uefi-2.6.xml $(TOPDIR)/xmlout/test
+
 echo :
 	@echo HEAD=$(HEAD)
 

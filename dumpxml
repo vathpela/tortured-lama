@@ -4,7 +4,21 @@ import sys
 import libxml2
 
 
+def usage(error):
+    s = "usage: dumpxml <infile> <outfile_prefix>\n"
+    if error:
+        sys.stderr.write(s)
+        sys.exit(1)
+    else:
+        sys.stdout.write(s)
+        sys.exit(0)
+
 if __name__ == '__main__':
+    if set(sys.argv).intersection(set(["-?", "-h", "--help", "--usage"])):
+        usage(False)
+
+    if len(sys.argv) != 3:
+        usage(True)
     infile = sys.argv[1]
     outfile = sys.argv[2]
 
