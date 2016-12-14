@@ -1,0 +1,35 @@
+#!/usr/bin/python3
+
+import sys
+import libxml2
+
+
+if __name__ == '__main__':
+    infile = sys.argv[1]
+    outfile = sys.argv[2]
+
+    xml = libxml2.parseFile(infile)
+
+    root = xml.getRootElement()
+
+    element = root.firstElementChild()
+
+    chapters = []
+
+    for element in xml.walk_breadth_first():
+        if element is None:
+            chapters.append(chapter)
+            chapter = []
+            break
+
+        if element.name == 'ChapterTitle':
+            chapters.append(chapter)
+            chapter = []
+
+        chapter.append(element)
+        element = element.next
+
+    for n in range(0, len(chapters)):
+        content = ""
+        if element.name == "ChapterTitle":
+            open(outfile + ".%d" % (n,), "w").write(content)
