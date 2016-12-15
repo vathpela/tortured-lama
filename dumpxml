@@ -3,6 +3,10 @@
 import sys
 import libxml2
 
+from attr import attrs, attrib
+from attr.validators import instance_of, optional, provides
+
+import pdb
 
 def usage(error):
     s = "usage: dumpxml <infile> <outfile_prefix>\n"
@@ -12,6 +16,138 @@ def usage(error):
     else:
         sys.stdout.write(s)
         sys.exit(0)
+
+idList = {}
+
+@attrs
+class Element:
+    element = attrib()
+    _ids = attrib(default=set(), init=False)
+
+    @property
+    def ids(self):
+        return self._ids
+
+    def __attrs_post_init__(self, *args, **kwds):
+        element = self.element.firstElementChild()
+        while element:
+            prop = element.get_properties()
+            while prop:
+                if prop.name == 'ID':
+                    ident = prop.getContent()
+                    self._ids.update([ident])
+                    idList[ident] = self
+                prop = prop.next
+            element = element.next
+
+    def __str__(self):
+        text = []
+        for element in self.elements:
+            s = element.getContent().strip()
+            if s:
+                text.append(s)
+        return "".join(text)
+
+@attrs
+class Body(Element):
+    pass
+
+@attrs
+class Title(Element):
+    pass
+
+@attrs
+class Section:
+    title = attrib()
+    elements = attrib(default=[])
+
+@attrs
+class FrontMatter(Section):
+    def __attrs_post_init__(self, *args, **kwds):
+        self.title = "".join([e.getContent() for e in self.elements])
+
+@attrs
+class Chapter(Section):
+    def __attrs_post_init__(self, *args, **kwds):
+        elements = []
+        for element in self.elements:
+            if element.name == 'Heading-1':
+                self.title = Element(element)
+                elements.append(self.title)
+            elif element.name == 'Body':
+                elements.append(Body(element))
+            else:
+                elements.append(Element(element))
+        self.elements = elements
+
+@attrs
+class Appendix(Section):
+    pass
+
+@attrs
+class Heading:
+    element = attrib()
+    use_class = attrib()
+    start = attrib(default=True)
+    middle = attrib(default=False)
+    end = attrib(default=False)
+
+@attrs
+class Parser:
+    xml = attrib()
+
+    headings = {
+        'ChapterTitle':Heading('ChapterTitle', FrontMatter),
+        'Heading-1':Heading('Heading-1', Chapter),
+        'zHeading-1-Appendix':Heading('zHeading-1-Appendix', Appendix),
+    }
+
+    def parse(self):
+        chapters = []
+        chapter = []
+        for element in xml.walk_breadth_first():
+            if element is None:
+                chapters.append(chapter)
+                chapter = []
+                break
+
+            name = element.name.strip()
+            #print("element.name: %s" % (name,))
+            if name in self.headings.keys():
+                heading = self.headings[name]
+                if heading.start:
+                    chapters.append(chapter)
+                    chapter = []
+                    chapter.append(element)
+                elif heading.middle:
+                    chapter.append(element)
+                elif heading.end:
+                    chapter.append(element)
+                    chapters.append(chapter)
+                    print("finished chapter %s" % (element.name,))
+                    chapter = []
+            else:
+                chapter.append(element)
+
+            #element = element.next
+
+        if chapter:
+            chapters.append(chapter)
+
+        oldchapters = chapters
+        chapters = []
+        elements = []
+        for chapter in oldchapters:
+            for element in chapter:
+                if element.name in self.headings.keys():
+                    heading = self.headings[element.name]
+                    content = element.getContent().strip()
+                    print("new %s %s" % (heading.use_class.__name__, element.name))
+                    if not content:
+                        continue
+                    chapter = heading.use_class(element.getContent().strip(), chapter)
+                    chapters.append(chapter)
+        return chapters
 
 if __name__ == '__main__':
     if set(sys.argv).intersection(set(["-?", "-h", "--help", "--usage"])):
@@ -24,26 +160,17 @@ if __name__ == '__main__':
 
     xml = libxml2.parseFile(infile)
 
-    root = xml.getRootElement()
+    # root = xml.getRootElement()
+    # element = root.firstElementChild()
 
-    element = root.firstElementChild()
+    parser = Parser(xml)
 
-    chapters = []
+    chapters = parser.parse()
 
-    for element in xml.walk_breadth_first():
-        if element is None:
-            chapters.append(chapter)
-            chapter = []
-            break
-
-        if element.name == 'ChapterTitle':
-            chapters.append(chapter)
-            chapter = []
-
-        chapter.append(element)
-        element = element.next
-
-    for n in range(0, len(chapters)):
-        content = ""
-        if element.name == "ChapterTitle":
-            open(outfile + ".%d" % (n,), "w").write(content)
+    n = 0
+    for chapter in chapters:
+        with open(outfile + ".%d" % (n,), "w") as f:
+            if n == 2:
+                pdb.set_trace()
+            f.write(str(chapter) + '\n')
+        n += 1
